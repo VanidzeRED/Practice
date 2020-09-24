@@ -5,27 +5,46 @@ public class Person {
     private String lastName;
     private int passportId;
 
-    void setFirstName (String firstName){
+    void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    void setLastName (String lastName){
+    void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    void setPassportId (int passportId){
+    void setPassportId(int passportId) {
         this.passportId = passportId;
     }
 
-    String getFirstName (){
+    String getFirstName() {
         return firstName;
     }
 
-    String getLastName (){
-        return  lastName;
+    String getLastName() {
+        return lastName;
     }
 
-    int getPassportId (){
+    int getPassportId() {
         return passportId;
     }
+
+    public Person (){
+    }
+
+    public Person (String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public  Person (int passportId) {
+        this.passportId = passportId;
+    }
+
+    public Person (String firstName, String lastName, int passportId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.passportId = passportId;
+    }
+
 }
