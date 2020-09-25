@@ -25,5 +25,34 @@ public class HelloWorld {
         Point secondPoint = new Point (5.4, 6.9, 10.2);
 
         Point thirdPoint = new Point (-98.5, 1002.4589, -963.54);
+
+        Point resultPoint = Points.sumPoints(firstPoint,secondPoint);
+
+        System.out.println(resultPoint.x);
+        System.out.println(resultPoint.y);
+        System.out.println(resultPoint.z);
+        System.out.println("----");
+
+        resultPoint = Points.subtractPoints(secondPoint, thirdPoint);
+
+        System.out.println(resultPoint.x);
+        System.out.println(resultPoint.y);
+        System.out.println(resultPoint.z);
+        System.out.println("----");
+
+        resultPoint = Points.multiplyPoints(secondPoint, thirdPoint);
+
+        System.out.println(resultPoint.x);
+        System.out.println(resultPoint.y);
+        System.out.println(resultPoint.z);
+        System.out.println("----");
+
+        resultPoint = Points.dividePoints(firstPoint, secondPoint);
+
+        System.out.println(resultPoint.x);
+        System.out.println(resultPoint.y);
+        System.out.println(resultPoint.z);
+        System.out.println("----");
+
     }
 }
