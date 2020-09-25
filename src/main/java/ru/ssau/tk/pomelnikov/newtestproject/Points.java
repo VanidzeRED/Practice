@@ -26,21 +26,21 @@ public class Points {
     }
 
     static Point inverse (Point point){
-        Point point1 = new Point(1,1,1);
-        return Points.dividePoints(point1, point);
+        Point pointHelper = new Point(1,1,1);
+        return Points.dividePoints(pointHelper, point);
     }
 
     static Point opposite (Point point){
-        Point point1 = new Point(-1,-1,-1);
-        return Points.multiplyPoints(point1, point);
+        Point pointHelper = new Point(-1,-1,-1);
+        return Points.multiplyPoints(pointHelper, point);
     }
 
     static double scalarProduct (Point firstVector, Point secondVector){
         return firstVector.x * secondVector.x + firstVector.y * secondVector.y + firstVector.z * secondVector.z;
     }
 
-    static Point vectorProducy (Point firstVector, Point secondVector){
-        return new Point (firstVector.y * secondVector.z - firstVector.z * secondVector.y, firstVector.x * secondVector.z - firstVector.z * secondVector.x, firstVector.x * secondVector.y - firstVector.y * secondVector.x);
+    static Point vectorProduct (Point firstVector, Point secondVector){
+        return new Point (firstVector.y * secondVector.z - firstVector.z * secondVector.y, firstVector.z * secondVector.x - firstVector.x * secondVector.z, firstVector.x * secondVector.y - firstVector.y * secondVector.x);
     }
 
     private Points (){

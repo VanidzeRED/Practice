@@ -1,9 +1,11 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import org.testng.annotations.Test;
+
 import static org.testng.Assert.*;
 
 public class PersonTest {
-    public void testGetSet(){
+    /*public void testGetSet(){
         Person firstPerson = new Person();
         firstPerson.setFirstName("Ivan");
         firstPerson.setLastName("Pomelnikov");
@@ -18,8 +20,9 @@ public class PersonTest {
         assertEquals(firstPerson.getLastName(), "Pomelnikov");
         assertNotEquals(firstPerson.getPassportId(), 5678);
         assertEquals(secondPerson.getPassportId(), 5678);
-    }
+    }*/
 
+    @Test
     public void testFirstName(){
         Person somePerson = new Person();
         somePerson.setFirstName("Till");
@@ -30,6 +33,7 @@ public class PersonTest {
         assertEquals(somePerson.getFirstName(), "John");
     }
 
+    @Test
     public void testLastName(){
         Person somePerson = new Person();
         somePerson.setLastName("Lindemann");
@@ -40,6 +44,7 @@ public class PersonTest {
         assertEquals(somePerson.getLastName(), "Lenon");
     }
 
+    @Test
     public void testPassportId(){
         Person somePerson = new Person();
         somePerson.setPassportId(1036);
