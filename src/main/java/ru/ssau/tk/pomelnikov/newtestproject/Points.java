@@ -35,6 +35,14 @@ public class Points {
         return Points.multiplyPoints(point1, point);
     }
 
+    static double scalarProduct (Point firstVector, Point secondVector){
+        return firstVector.x * secondVector.x + firstVector.y * secondVector.y + firstVector.z * secondVector.z;
+    }
+
+    static Point vectorProducy (Point firstVector, Point secondVector){
+        return new Point (firstVector.y * secondVector.z - firstVector.z * secondVector.y, firstVector.x * secondVector.z - firstVector.z * secondVector.x, firstVector.x * secondVector.y - firstVector.y * secondVector.x);
+    }
+
     private Points (){
     }
 }
