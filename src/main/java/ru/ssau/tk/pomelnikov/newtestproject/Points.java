@@ -17,6 +17,10 @@ public class Points {
         return new Point (pointA.x / pointB.x,pointA.y / pointB.y,pointA.z / pointB.z);
     }
 
+    static Point enlarge (Point point, double number){
+        return new Point (point.x * number,point.y * number,point.z * number);
+    }
+
     private Points (){
     }
 }
