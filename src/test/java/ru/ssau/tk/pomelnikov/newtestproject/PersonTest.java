@@ -19,4 +19,34 @@ public class PersonTest {
         assertNotEquals(firstPerson.getPassportId(), 5678);
         assertEquals(secondPerson.getPassportId(), 5678);
     }
+
+    public void testFirstName(){
+        Person somePerson = new Person();
+        somePerson.setFirstName("Till");
+        assertEquals(somePerson.getFirstName(), "Till");
+
+        somePerson.setFirstName("John");
+        assertNotEquals(somePerson.getFirstName(), "Till");
+        assertEquals(somePerson.getFirstName(), "John");
+    }
+
+    public void testLastName(){
+        Person somePerson = new Person();
+        somePerson.setLastName("Lindemann");
+        assertEquals(somePerson.getLastName(), "Lindemann");
+
+        somePerson.setLastName("Lenon");
+        assertNotEquals(somePerson.getLastName(), "Till");
+        assertEquals(somePerson.getLastName(), "Lenon");
+    }
+
+    public void testPassportId(){
+        Person somePerson = new Person();
+        somePerson.setPassportId(1036);
+        assertEquals(somePerson.getPassportId(), 1036);
+
+        somePerson.setPassportId(9506);
+        assertNotEquals(somePerson.getPassportId(), 1036);
+        assertEquals(somePerson.getPassportId(), 9506);
+    }
 }
