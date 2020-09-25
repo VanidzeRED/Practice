@@ -25,6 +25,16 @@ public class Points {
         return point.length();
     }
 
+    static Point inverse (Point point){
+        Point point1 = new Point(1,1,1);
+        return Points.dividePoints(point1, point);
+    }
+
+    static Point opposite (Point point){
+        Point point1 = new Point(-1,-1,-1);
+        return Points.multiplyPoints(point1, point);
+    }
+
     private Points (){
     }
 }
