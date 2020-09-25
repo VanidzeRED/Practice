@@ -19,5 +19,11 @@ public class HelloWorld {
         Person fourthPerson = new Person (1596);
 
         Person fifthPerson = new Person ("Filipp", "August", 6688);
+
+        Point firstPoint = new Point (1,1,1);
+
+        Point secondPoint = new Point (5.4, 6.9, 10.2);
+
+        Point thirdPoint = new Point (-98.5, 1002.4589, -963.54);
     }
 }
