@@ -1,7 +1,7 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
 public class HelloWorld {
-    public static void main(String[] args) {
+    public static void someMethod(String[] args) {
         //System.out.println("Hello, world!");
 
         Person firstPerson = new Person();
