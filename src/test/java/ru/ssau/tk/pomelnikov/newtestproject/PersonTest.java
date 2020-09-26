@@ -54,4 +54,14 @@ public class PersonTest {
         assertNotEquals(somePerson.getPassportId(), 1036);
         assertEquals(somePerson.getPassportId(), 9506);
     }
+
+    @Test
+    public void testGender(){
+        Person somePerson = new Person("Rob", "Zombie", 7895, Gender.MALE);
+        assertEquals(somePerson.getGender(), Gender.MALE);
+        // Шок операция по смене пола!!!
+        somePerson.setGender(Gender.FEMALE);
+        assertEquals(somePerson.getGender(), Gender.FEMALE);
+        assertNotEquals(somePerson.getGender(), Gender.MALE);
+    }
 }
