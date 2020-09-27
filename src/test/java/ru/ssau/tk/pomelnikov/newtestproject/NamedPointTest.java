@@ -20,4 +20,12 @@ public class NamedPointTest {
         assertEquals(secondTestPoint.z,10.0, 0.01);
         assertEquals(secondTestPoint.getName(),"PointA");
     }
+
+    @Test
+    public void testReset(){
+        NamedPoint thirdTestPoint = new NamedPoint(0,0,0,"PointC");
+        assertEquals(thirdTestPoint.getName(), "PointC");
+        thirdTestPoint.reset();
+        assertEquals(thirdTestPoint.getName(), "Absent");
+    }
 }
