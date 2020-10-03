@@ -13,4 +13,14 @@ public class Arrays {
         }
         return filledArray;
     }
+
+    public int[] fillArrayOdd(int count){
+        int[] filledArray = new int[count];
+        int oddFlag=1;
+        for (int iterator=0; iterator<count; iterator++){
+            filledArray[iterator] = oddFlag;
+            oddFlag += 2;
+        }
+        return filledArray;
+    }
 }
