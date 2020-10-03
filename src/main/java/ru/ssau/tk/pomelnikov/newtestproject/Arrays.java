@@ -23,4 +23,14 @@ public class Arrays {
         }
         return filledArray;
     }
+
+    public int[] fillArrayEven(int count){
+        int[] filledArray = new int[count];
+        int oddFlag=2*count;
+        for (int iterator=0; iterator<count; iterator++){
+            filledArray[iterator] = oddFlag;
+            oddFlag -= 2;
+        }
+        return filledArray;
+    }
 }

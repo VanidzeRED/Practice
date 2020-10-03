@@ -32,4 +32,13 @@ public class ArraysTest {
         assertEquals(arrayTest.fillArrayOdd(8), new int[]{1, 3, 5, 7, 9, 11, 13, 15});
         //System.out.println(java.util.Arrays.toString(arrayTest.fillArrayOdd(8)));
     }
+
+    @Test
+    private void fillArrayEvenTest(){
+        assertEquals(arrayTest.fillArrayEven(1), new int[]{2});
+        assertEquals(arrayTest.fillArrayEven(3), new int[]{6, 4, 2});
+        assertEquals(arrayTest.fillArrayEven(4), new int[]{8, 6, 4, 2});
+        assertEquals(arrayTest.fillArrayEven(8), new int[]{16, 14, 12, 10, 8, 6, 4, 2});
+        //System.out.println(java.util.Arrays.toString(arrayTest.fillArrayEven(8)));
+    }
 }
