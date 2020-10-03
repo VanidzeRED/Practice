@@ -33,4 +33,20 @@ public class Arrays {
         }
         return filledArray;
     }
+
+    public int[] fillArrayFibonachi(int n){
+        int[] filledArray = new int[n];
+        switch (n){
+            case 1: filledArray[0] = 1;
+            case 2: {filledArray[0] = 1; filledArray[1] = 1;}
+            default: {
+                filledArray[0] = 1;
+                filledArray[1] = 1;
+                for (int iterator = 2; iterator<n; iterator++){
+                    filledArray[iterator]=filledArray[iterator-1]+filledArray[iterator-2];
+                }
+            }
+        }
+        return filledArray;
+    }
 }
