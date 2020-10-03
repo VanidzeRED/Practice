@@ -5,4 +5,12 @@ public class Arrays {
         double[] firstArray = new double[count];
         return firstArray;
     }
+
+    public int[] fillArrayOne(int count){
+        int[] filledArray = new int[count];
+        for (int iterator=0; iterator<count; iterator++){
+            filledArray[iterator] = (iterator==count-1)|(iterator==0) ? 2: 1;
+        }
+        return filledArray;
+    }
 }
