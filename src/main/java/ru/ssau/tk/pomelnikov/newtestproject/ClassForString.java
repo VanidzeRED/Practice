@@ -6,4 +6,11 @@ public class ClassForString {
             System.out.println(string.charAt(i));
         }
     }
+
+    public void stringToBytes(String string){
+        byte[] bytesArray = string.getBytes();
+        for (byte currentByte: bytesArray){
+            System.out.println(currentByte);
+        }
+    }
 }

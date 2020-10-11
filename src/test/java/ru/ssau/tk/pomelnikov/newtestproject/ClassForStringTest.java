@@ -14,4 +14,13 @@ public class ClassForStringTest {
         stringTest.stringToConsole("Hello, World! ");
         stringTest.stringToConsole("Java is my favourite language");
     }
+
+    @Test
+    public void stingToBytesTest(){
+        stringTest.stringToBytes("qwerty");
+        System.out.println("-");
+        stringTest.stringToBytes("Hello!");
+        System.out.println("-");
+        stringTest.stringToBytes("Привет!");
+    }
 }
