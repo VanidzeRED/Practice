@@ -23,4 +23,9 @@ public class ClassForStringTest {
         System.out.println("-");
         stringTest.stringToBytes("Привет!");
     }
+
+    @Test
+    public void equalStringTest(){
+        stringTest.equalString();
+    }
 }

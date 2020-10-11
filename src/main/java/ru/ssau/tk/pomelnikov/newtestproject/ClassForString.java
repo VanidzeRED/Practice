@@ -13,4 +13,11 @@ public class ClassForString {
             System.out.println(currentByte);
         }
     }
+
+    public void equalString(){
+        String stringOne = "Some string";
+        String stringTwo = new String(stringOne);
+        System.out.println(stringOne==stringTwo);
+        System.out.println(stringOne.equals(stringTwo));
+    }
 }
