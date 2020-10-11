@@ -1,23 +1,33 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
 public class ClassForString {
-    public void stringToConsole(String string){
-        for (int i=0; i<string.length(); i++) {
+    public void stringToConsole(String string) {
+        for (int i = 0; i < string.length(); i++) {
             System.out.println(string.charAt(i));
         }
     }
 
-    public void stringToBytes(String string){
+    public void stringToBytes(String string) {
         byte[] bytesArray = string.getBytes();
-        for (byte currentByte: bytesArray){
+        for (byte currentByte : bytesArray) {
             System.out.println(currentByte);
         }
     }
 
-    public void equalString(){
+    public void equalString() {
         String stringOne = "Some string";
         String stringTwo = new String(stringOne);
-        System.out.println(stringOne==stringTwo);
+        System.out.println(stringOne == stringTwo);
         System.out.println(stringOne.equals(stringTwo));
+    }
+
+    public boolean isPalindrom(String string) {
+        int strLen = string.length();
+        for (int i=0; i*2<strLen; i++){
+            if (string.charAt(i)!=string.charAt(strLen-i)){
+                return faulse
+            }
+        }
+        return true;
     }
 }
