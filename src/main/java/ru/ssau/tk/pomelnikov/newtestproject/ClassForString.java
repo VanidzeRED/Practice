@@ -23,9 +23,9 @@ public class ClassForString {
 
     public boolean isPalindrom(String string) {
         int strLen = string.length();
-        for (int i=0; i*2<strLen; i++){
-            if (string.charAt(i)!=string.charAt(strLen-i)){
-                return faulse
+        for (int i = 0; i * 2 < strLen; i++) {
+            if (string.charAt(i) != string.charAt(strLen - (i + 1))) {
+                return false;
             }
         }
         return true;

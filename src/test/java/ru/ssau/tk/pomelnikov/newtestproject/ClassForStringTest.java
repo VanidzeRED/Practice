@@ -28,4 +28,12 @@ public class ClassForStringTest {
     public void equalStringTest(){
         stringTest.equalString();
     }
+
+    @Test
+    public void isPalindromTest(){
+        System.out.println(stringTest.isPalindrom("qwertytrewq"));
+        System.out.println(stringTest.isPalindrom("abba"));
+        System.out.println(stringTest.isPalindrom("buba"));
+        System.out.println(stringTest.isPalindrom("qwerty"));
+    }
 }
