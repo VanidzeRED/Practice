@@ -73,4 +73,10 @@ public class Arrays {
         }
         return filledArray;
     }
+
+    public void changeToNegative (int[] inputArray){
+        for (int i = 0; i<inputArray.length; i++){
+            inputArray[i] *= -1;
+        }
+    }
 }

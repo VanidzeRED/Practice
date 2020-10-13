@@ -66,4 +66,17 @@ public class ArraysTest {
         assertEquals(arrayTest.fillArrayNatural(10), new int[]{1, 2, 4, 5, 7, 8, 10, 11, 13, 14});
 
     }
+
+    @Test
+    private void changeToNegative() {
+        final int[] testArray1 = {-1, 0, 1};
+        final int[] testArray2 = {9, -9};
+        arrayTest.changeToNegative(testArray1);
+        arrayTest.changeToNegative(testArray2);
+        assertEquals(testArray1[0], 1);
+        assertEquals(testArray1[1], 0);
+        assertEquals(testArray1[2], -1);
+        assertEquals(testArray2[0], -9);
+        assertEquals(testArray2[1], 9);
+    }
 }
