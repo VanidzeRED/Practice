@@ -79,4 +79,27 @@ public class ArraysTest {
         assertEquals(testArray2[0], -9);
         assertEquals(testArray2[1], 9);
     }
+
+    @Test
+    private void createDoubleDimentionArrayTest() {
+        final int[] testArray1 = {1, 2, 3};
+        final int[] testArray2 = {4, 5};
+        final int[] testArray3 = {6};
+        int[][] resultArray1 = arrayTest.createDoubleDimentionArray(3);
+
+        assertEquals(resultArray1[0], new int[]{1, 2, 3});
+        assertEquals(resultArray1[1], new int[]{4,5});
+        assertEquals(resultArray1[2], new int[]{6});
+
+        final int[] testArray4 = {1, 2, 3, 4};
+        final int[] testArray5 = {5, 6, 7};
+        final int[] testArray6 = {8, 9};
+        final int[] testArray7 = {10};
+        int[][] resultArray2 = arrayTest.createDoubleDimentionArray(4);
+
+        assertEquals(resultArray2[0], new int[]{1, 2, 3, 4});
+        assertEquals(resultArray2[1], new int[]{5, 6, 7});
+        assertEquals(resultArray2[2], new int[]{8, 9});
+        assertEquals(resultArray2[3], new int[]{10});
+    }
 }

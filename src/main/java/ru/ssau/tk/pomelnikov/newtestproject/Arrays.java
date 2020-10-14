@@ -1,5 +1,7 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import java.lang.reflect.Array;
+
 public class Arrays {
     public double[] setArray(int count) {
         double[] firstArray = new double[count];
@@ -74,9 +76,21 @@ public class Arrays {
         return filledArray;
     }
 
-    public void changeToNegative (int[] inputArray){
-        for (int i = 0; i<inputArray.length; i++){
+    public void changeToNegative(int[] inputArray) {
+        for (int i = 0; i < inputArray.length; i++) {
             inputArray[i] *= -1;
         }
+    }
+
+    public int[][] createDoubleDimentionArray(int count) {
+        int[][] newArray = new int[count][];
+        int flag = 1;
+        for (int i = 0; i < count; i++) {
+            newArray[i] = new int[count - i];
+            for (int j = 0; j < count - i; j++) {
+                newArray[i][j] = flag++;
+            }
+        }
+        return newArray;
     }
 }
