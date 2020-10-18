@@ -22,6 +22,8 @@ public class Matrix {
     }
 
     public Matrix(int n, int m) {
+        this.n = n;
+        this.m = m;
         matrix = new double[n][m];
     }
 }
