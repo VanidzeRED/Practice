@@ -1,7 +1,5 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
-import java.lang.reflect.Array;
-
 public class Arrays {
     public double[] setArray(int count) {
         double[] firstArray = new double[count];
@@ -93,4 +91,6 @@ public class Arrays {
         }
         return newArray;
     }
+
+
 }
