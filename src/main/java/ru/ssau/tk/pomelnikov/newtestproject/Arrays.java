@@ -92,5 +92,21 @@ public class Arrays {
         return newArray;
     }
 
+    public double[] fillArrayArithmeticProgression(int count, double begin, double difference){
+        double[] filledArray = new double[count];
+        filledArray[0] = begin;
+        for (int i=1; i<count; i++){
+            filledArray[i] = filledArray[i-1] + difference;
+        }
+        return filledArray;
+    }
 
+    public double[] fillArrayGeometricProgression(int count, double begin, double denominator){
+        double[] filledArray = new double[count];
+        filledArray[0] = begin;
+        for (int i=1; i<count; i++){
+            filledArray[i] = filledArray[i-1] * denominator;
+        }
+        return filledArray;
+    }
 }

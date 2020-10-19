@@ -94,4 +94,18 @@ public class ArraysTest {
         assertEquals(resultArray2[2], new int[]{8, 9});
         assertEquals(resultArray2[3], new int[]{10});
     }
+
+    @Test
+    private void fillArrayArithmeticProgressionTest(){
+        assertEquals(arrayTest.fillArrayArithmeticProgression(5, 0, 1), new double[]{0., 1., 2., 3., 4.});
+        assertEquals(arrayTest.fillArrayArithmeticProgression(5, -0.5, 0.5), new double[]{-0.5, 0., 0.5, 1., 1.5});
+        assertEquals(arrayTest.fillArrayArithmeticProgression(5, 1.6, -0.8), new double[]{1.6, 0.8, 0, -0.8, -1.6});
+    }
+
+    @Test
+    private void fillArrayGeometricProgressionTest(){
+        assertEquals(arrayTest.fillArrayGeometricProgression(5, 1, 2), new double[]{1., 2., 4., 8., 16.});
+        assertEquals(arrayTest.fillArrayGeometricProgression(5, 2, -2), new double[]{2., -4., 8., -16., 32.});
+        assertEquals(arrayTest.fillArrayGeometricProgression(4, 1, 0.5), new double[]{1., 0.5, 0.25, 0.125});
+    }
 }
