@@ -108,4 +108,12 @@ public class ArraysTest {
         assertEquals(arrayTest.fillArrayGeometricProgression(5, 2, -2), new double[]{2., -4., 8., -16., 32.});
         assertEquals(arrayTest.fillArrayGeometricProgression(4, 1, 0.5), new double[]{1., 0.5, 0.25, 0.125});
     }
+
+    @Test
+    private void findDenominatorsTest(){
+        assertEquals(arrayTest.findDenominators(2), new int[]{1, 2});
+        assertEquals(arrayTest.findDenominators(18), new int[]{1, 2, 3});
+        assertEquals(arrayTest.findDenominators(27), new int[]{1, 3});
+        assertEquals(arrayTest.findDenominators(30), new int[]{1, 2, 3, 5, 6});
+    }
 }

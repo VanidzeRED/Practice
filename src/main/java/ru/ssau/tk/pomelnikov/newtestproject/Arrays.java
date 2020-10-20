@@ -109,4 +109,27 @@ public class Arrays {
         }
         return filledArray;
     }
+
+    public int[] findDenominators(int arg){
+        int borderValue = (int) Math.sqrt(arg) + 1;
+        int count = 0;
+        boolean[] helpArray = new boolean[borderValue];
+        for (int i=0; i < borderValue; i++){
+            if (arg % (i+1) == 0){
+                helpArray[i] = true;
+                count++;
+            }
+            else {
+                helpArray[i] = false;
+            }
+        }
+        int[] newArray = new int[count];
+        int flag = 0;
+        for (int i=0; i < borderValue; i++){
+            if (helpArray[i]){
+                newArray[flag++] = i+1;
+            }
+        }
+        return newArray;
+    }
 }
