@@ -176,4 +176,11 @@ public class ArraysTest {
         assertEquals(arrayTest.findMax(new int[]{5, -2, -3, -4, -3, 10, -1}), new Integer(10));
         assertEquals(arrayTest.findMax(new int[]{}), null);
     }
+
+    @Test
+    private void testFindSum(){
+        assertEquals(arrayTest.findSum(new int[]{1, 0, 1, 0, 1, 0}), 3);
+        assertEquals(arrayTest.findSum(new int[]{0, 1, 0, 1, 0, 1, 0}), 0);
+        assertEquals(arrayTest.findSum(new int[]{9, 13, 5, 6, 9, 7, 32, 6, 10, 5, 6, 46, 5}), 76);
+    }
 }
