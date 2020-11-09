@@ -133,4 +133,11 @@ public class ArraysTest {
         assertEquals(arrayTest.findPrime(23), new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23});
         assertEquals(arrayTest.findPrime(2), new int[]{2});
     }
+
+    @Test
+    private void testFillArrayMirror(){
+        assertEquals(arrayTest.fillArrayMirror(7), new int[]{1, 2, 3, 4, 3, 2, 1});
+        assertEquals(arrayTest.fillArrayMirror(2), new int[]{1, 1});
+        assertEquals(arrayTest.fillArrayMirror(8), new int[]{1, 2, 3, 4, 4, 3, 2, 1});
+    }
 }

@@ -161,4 +161,17 @@ public class Arrays {
         }
         return newArray;
     }
+
+    public int[] fillArrayMirror(int arg){
+        int[] newArray = new int[arg];
+        int center = (arg % 2 == 1) ? arg / 2 : arg / 2 - 1;
+        for (int i = 0; i <= center; i++){
+            newArray[i] = i+1;
+        }
+        int flag = 1;
+        for (int i = arg-1; i > center; i--){
+            newArray[i] = flag++;
+        }
+        return newArray;
+    }
 }
