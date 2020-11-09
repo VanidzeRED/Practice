@@ -305,4 +305,13 @@ public class Arrays {
         }
         return newArray;
     }
+
+    public boolean[] isEven(int[] array) {
+        int length = array.length;
+        boolean[] newArray = new boolean[length];
+        for (int i = 0; i < length; i++) {
+            newArray[i] = array[i] % 2 == 0;
+        }
+        return newArray;
+    }
 }

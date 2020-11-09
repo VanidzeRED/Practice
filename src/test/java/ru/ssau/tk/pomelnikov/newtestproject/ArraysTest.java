@@ -251,4 +251,11 @@ public class ArraysTest {
         assertEquals(arrayTest.sumPares(array1), new int[]{7, 7, 7});
         assertEquals(arrayTest.sumPares(array2), new int[]{7, 7, 7, 7});
     }
+
+    @Test
+    private void testIsEven() {
+        assertEquals(arrayTest.isEven(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}), new boolean[]{false, true, false, true, false, true, false, true, false});
+        assertEquals(arrayTest.isEven(new int[]{1, 5, 3}), new boolean[]{false, false, false});
+        assertEquals(arrayTest.isEven(new int[]{2, 4, 6}), new boolean[]{true, true, true});
+    }
 }
