@@ -214,6 +214,18 @@ public class Arrays {
         }
     }
 
+    public Integer findMin(int[] array) {
+        if (array.length == 0) {
+            return null;
+        } else {
+            Integer min = array[0];
+            for (int i = 1; i < array.length; i++) {
+                if (array[i] < min) min = array[i];
+            }
+            return min;
+        }
+    }
+
     public int findSum(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; ) {
@@ -258,5 +270,13 @@ public class Arrays {
             if (array[i] == arg) return i;
         }
         return -1;
+    }
+
+    public void exchangeMaxMin(int[] array) {
+        int maxIndex = findIndexOfElem(array, findMax(array));
+        int minIndex = findIndexOfElem(array, findMin(array));
+        int buffer = array[maxIndex];
+        array[maxIndex] = array[minIndex];
+        array[minIndex] = buffer;
     }
 }

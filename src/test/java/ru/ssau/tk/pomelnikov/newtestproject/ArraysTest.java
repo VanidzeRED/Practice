@@ -174,7 +174,14 @@ public class ArraysTest {
     private void testFindMax() {
         assertEquals(arrayTest.findMax(new int[]{1, 2, 3, 4, 3, 2, 1}), new Integer(4));
         assertEquals(arrayTest.findMax(new int[]{5, -2, -3, -4, -3, 10, -1}), new Integer(10));
-        assertEquals(arrayTest.findMax(new int[]{}), null);
+        assertNull(arrayTest.findMax(new int[]{}));
+    }
+
+    @Test
+    private void testFindMin() {
+        assertEquals(arrayTest.findMin(new int[]{1, 2, 3, 4, 3, 2, 1}), new Integer(1));
+        assertEquals(arrayTest.findMin(new int[]{5, -2, -3, -4, -3, 10, -1}), new Integer(-4));
+        assertNull(arrayTest.findMin(new int[]{}));
     }
 
     @Test
@@ -204,5 +211,18 @@ public class ArraysTest {
         assertEquals(arrayTest.findIndexOfElem(new int[]{0, 1, 2, 3, 4, 5}, 3), 3);
         assertEquals(arrayTest.findIndexOfElem(new int[]{0, 1, 2, 3, 4, 5}, 5), 5);
         assertEquals(arrayTest.findIndexOfElem(new int[]{0, 1, 2, 3, 4, 5}, 6), -1);
+    }
+
+    @Test
+    private void testExchangeMaxMin() {
+        int[] array1 = new int[]{1, 2, 3};
+        int[] array2 = new int[]{1, 5, 3};
+        int[] array3 = new int[]{-1, 0, 1, 4, 10, 5, 2};
+        arrayTest.exchangeMaxMin(array1);
+        arrayTest.exchangeMaxMin(array2);
+        arrayTest.exchangeMaxMin(array3);
+        assertEquals(array1, new int[]{3, 2, 1});
+        assertEquals(array2, new int[]{5, 1, 3});
+        assertEquals(array3, new int[]{10, 0, 1, 4, -1, 5, 2});
     }
 }
