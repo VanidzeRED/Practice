@@ -172,15 +172,15 @@ public class ArraysTest {
 
     @Test
     private void testFindMax() {
-        assertEquals(arrayTest.findMax(new int[]{1, 2, 3, 4, 3, 2, 1}), new Integer(4));
-        assertEquals(arrayTest.findMax(new int[]{5, -2, -3, -4, -3, 10, -1}), new Integer(10));
+        assertEquals(arrayTest.findMax(new int[]{1, 2, 3, 4, 3, 2, 1}), Integer.valueOf(4));
+        assertEquals(arrayTest.findMax(new int[]{5, -2, -3, -4, -3, 10, -1}), Integer.valueOf(10));
         assertNull(arrayTest.findMax(new int[]{}));
     }
 
     @Test
     private void testFindMin() {
-        assertEquals(arrayTest.findMin(new int[]{1, 2, 3, 4, 3, 2, 1}), new Integer(1));
-        assertEquals(arrayTest.findMin(new int[]{5, -2, -3, -4, -3, 10, -1}), new Integer(-4));
+        assertEquals(arrayTest.findMin(new int[]{1, 2, 3, 4, 3, 2, 1}), Integer.valueOf(1));
+        assertEquals(arrayTest.findMin(new int[]{5, -2, -3, -4, -3, 10, -1}), Integer.valueOf(-4));
         assertNull(arrayTest.findMin(new int[]{}));
     }
 
@@ -224,5 +224,14 @@ public class ArraysTest {
         assertEquals(array1, new int[]{3, 2, 1});
         assertEquals(array2, new int[]{5, 1, 3});
         assertEquals(array3, new int[]{10, 0, 1, 4, -1, 5, 2});
+    }
+
+    @Test
+    private void testByteNegate(){
+        int[] array = new int[]{-16, -8, -7, -2, -1, 0, 1, 2, 7, 8, 10, 32};
+        arrayTest.byteNegate(array);
+        assertEquals(array, new int[]{15, 7, 6, 1, 0, -1, -2, -3, -8, -9, -11, -33});
+        arrayTest.byteNegate(array);
+        assertEquals(array, new int[]{-16, -8, -7, -2, -1, 0, 1, 2, 7, 8, 10, 32});
     }
 }
