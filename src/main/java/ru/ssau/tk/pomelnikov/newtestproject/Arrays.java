@@ -252,4 +252,11 @@ public class Arrays {
         }
         return array[maxIndex];
     }
+
+    public int findIndexOfElem(int[] array, int arg) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == arg) return i;
+        }
+        return -1;
+    }
 }

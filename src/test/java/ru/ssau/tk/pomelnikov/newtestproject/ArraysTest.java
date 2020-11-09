@@ -197,4 +197,12 @@ public class ArraysTest {
         assertEquals(arrayTest.findMostPopular(new int[]{-1, 2, 2, 3, -1, -1, 2}), -1);
         assertEquals(arrayTest.findMostPopular(new int[]{1, 1, 2, 2, 2, 1}), 1);
     }
+
+    @Test
+    private void testFindIndexOfElem() {
+        assertEquals(arrayTest.findIndexOfElem(new int[]{0, 1, 2, 3, 4, 5}, 1), 1);
+        assertEquals(arrayTest.findIndexOfElem(new int[]{0, 1, 2, 3, 4, 5}, 3), 3);
+        assertEquals(arrayTest.findIndexOfElem(new int[]{0, 1, 2, 3, 4, 5}, 5), 5);
+        assertEquals(arrayTest.findIndexOfElem(new int[]{0, 1, 2, 3, 4, 5}, 6), -1);
+    }
 }
