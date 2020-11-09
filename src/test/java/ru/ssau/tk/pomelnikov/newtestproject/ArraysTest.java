@@ -116,4 +116,21 @@ public class ArraysTest {
         assertEquals(arrayTest.findDenominators(27), new int[]{1, 3});
         assertEquals(arrayTest.findDenominators(30), new int[]{1, 2, 3, 5, 6});
     }
+
+    @Test
+    private void testIsPrime(){
+        assertTrue(Arrays.isPrime(2));
+        assertTrue(Arrays.isPrime(5));
+        assertTrue(Arrays.isPrime(13));
+        assertFalse(Arrays.isPrime(4));
+        assertFalse(Arrays.isPrime(10));
+        assertFalse(Arrays.isPrime(75));
+    }
+
+    @Test
+    private void testFindPrime(){
+        assertEquals(arrayTest.findPrime(10), new int[]{2, 3, 5, 7});
+        assertEquals(arrayTest.findPrime(23), new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23});
+        assertEquals(arrayTest.findPrime(2), new int[]{2});
+    }
 }

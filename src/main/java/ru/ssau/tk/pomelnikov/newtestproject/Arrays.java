@@ -132,4 +132,33 @@ public class Arrays {
         }
         return newArray;
     }
+
+    public static boolean isPrime(int arg){
+        int count = 0;
+        for (int i = 1; i <= arg; i++){
+            if (arg % i == 0){
+                count++;
+            }
+        }
+        return count == 2;
+    }
+
+    public int[] findPrime(int arg){
+        boolean[] helpArray = new boolean[arg];
+        int count = 0;
+        for (int i = 1; i < arg; i++){
+            helpArray[i] = Arrays.isPrime(i+1);
+            if (helpArray[i]){
+                count++;
+            }
+        }
+        int[] newArray = new int[count];
+        int flag = 0;
+        for (int i = 1; i < arg; i++){
+            if (helpArray[i]){
+                newArray[flag++] = i+1;
+            }
+        }
+        return newArray;
+    }
 }
