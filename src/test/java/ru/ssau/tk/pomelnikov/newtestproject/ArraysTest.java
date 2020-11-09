@@ -171,16 +171,23 @@ public class ArraysTest {
     }
 
     @Test
-    private void testFindMax(){
+    private void testFindMax() {
         assertEquals(arrayTest.findMax(new int[]{1, 2, 3, 4, 3, 2, 1}), new Integer(4));
         assertEquals(arrayTest.findMax(new int[]{5, -2, -3, -4, -3, 10, -1}), new Integer(10));
         assertEquals(arrayTest.findMax(new int[]{}), null);
     }
 
     @Test
-    private void testFindSum(){
+    private void testFindSum() {
         assertEquals(arrayTest.findSum(new int[]{1, 0, 1, 0, 1, 0}), 3);
         assertEquals(arrayTest.findSum(new int[]{0, 1, 0, 1, 0, 1, 0}), 0);
         assertEquals(arrayTest.findSum(new int[]{9, 13, 5, 6, 9, 7, 32, 6, 10, 5, 6, 46, 5}), 76);
+    }
+
+    @Test
+    private void testIsMultiple() {
+        assertTrue(arrayTest.isMultiple(new int[]{2, 4, 6, 9, 10, 3}));
+        assertTrue(arrayTest.isMultiple(new int[]{10, 100, 50, 58, 60, 3}));
+        assertFalse(arrayTest.isMultiple(new int[]{10, 100, 50, 58, 60, 2}));
     }
 }

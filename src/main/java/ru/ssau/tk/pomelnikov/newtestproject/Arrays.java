@@ -202,13 +202,12 @@ public class Arrays {
         return count;
     }
 
-    public Integer findMax(int[] array){
-        if (array.length == 0){
+    public Integer findMax(int[] array) {
+        if (array.length == 0) {
             return null;
-        }
-        else{
+        } else {
             Integer max = array[0];
-            for (int i = 1; i < array.length; i++){
+            for (int i = 1; i < array.length; i++) {
                 if (array[i] > max) max = array[i];
             }
             return max;
@@ -222,5 +221,15 @@ public class Arrays {
             i += 2;
         }
         return sum;
+    }
+
+    public boolean isMultiple(int[] array) {
+        int count1 = 0;
+        int count2 = 0;
+        for (int i = 1; i < array.length - 1; i++) {
+            if (array[i] % array[0] == 0) count1++;
+            if (array[i] % array[array.length - 1] == 0) count2++;
+        }
+        return count1 > count2;
     }
 }
