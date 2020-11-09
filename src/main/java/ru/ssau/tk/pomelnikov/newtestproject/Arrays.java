@@ -201,4 +201,17 @@ public class Arrays {
         }
         return count;
     }
+
+    public Integer findMax(int[] array){
+        if (array.length == 0){
+            return null;
+        }
+        else{
+            Integer max = array[0];
+            for (int i = 1; i < array.length; i++){
+                if (array[i] > max) max = array[i];
+            }
+            return max;
+        }
+    }
 }

@@ -169,4 +169,11 @@ public class ArraysTest {
         assertEquals(arrayTest.findCountOfEven(new int[]{1, 3, 5, 7, 9}), 0);
         assertEquals(arrayTest.findCountOfEven(new int[]{1, 2, 4, 6, 10}), 4);
     }
+
+    @Test
+    private void testFindMax(){
+        assertEquals(arrayTest.findMax(new int[]{1, 2, 3, 4, 3, 2, 1}), new Integer(4));
+        assertEquals(arrayTest.findMax(new int[]{5, -2, -3, -4, -3, 10, -1}), new Integer(10));
+        assertEquals(arrayTest.findMax(new int[]{}), null);
+    }
 }
