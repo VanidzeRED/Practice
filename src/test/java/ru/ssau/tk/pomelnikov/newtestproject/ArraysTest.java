@@ -140,4 +140,15 @@ public class ArraysTest {
         assertEquals(arrayTest.fillArrayMirror(2), new int[]{1, 1});
         assertEquals(arrayTest.fillArrayMirror(8), new int[]{1, 2, 3, 4, 4, 3, 2, 1});
     }
+
+    @Test
+    private void testIsInArray(){
+        int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        assertTrue(arrayTest.isInArray(array, 0));
+        assertTrue(arrayTest.isInArray(array, 3));
+        assertTrue(arrayTest.isInArray(array, 9));
+        assertFalse(arrayTest.isInArray(array, -5));
+        assertFalse(arrayTest.isInArray(array, 10));
+        assertFalse(arrayTest.isInArray(array, -1));
+    }
 }

@@ -174,4 +174,13 @@ public class Arrays {
         }
         return newArray;
     }
+
+    public boolean isInArray(int[] array, int arg){
+        for (int i = 0; i<array.length; i++){
+            if (array[i] == arg){
+                return true;
+            }
+        }
+        return false;
+    }
 }
