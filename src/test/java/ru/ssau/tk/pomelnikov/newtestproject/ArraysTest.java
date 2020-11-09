@@ -151,4 +151,15 @@ public class ArraysTest {
         assertFalse(arrayTest.isInArray(array, 10));
         assertFalse(arrayTest.isInArray(array, -1));
     }
+
+    @Test
+    private void testIsNullInArray(){
+        Integer[] array1 = new Integer[]{1, 2, 3};
+        Integer[] array2 = new Integer[]{1, null, 3};
+        Integer[] array3 = new Integer[]{null, null};
+        assertTrue(arrayTest.isNullInArray(array2));
+        assertTrue(arrayTest.isNullInArray(array3));
+        assertFalse(arrayTest.isNullInArray(array1));
+
+    }
 }

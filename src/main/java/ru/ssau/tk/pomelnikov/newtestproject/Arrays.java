@@ -183,4 +183,13 @@ public class Arrays {
         }
         return false;
     }
+
+    public boolean isNullInArray(Integer[] objects){
+        for (int i = 0; i<objects.length; i++){
+            if (objects[i] == null){
+                return true;
+            }
+        }
+        return false;
+    }
 }
