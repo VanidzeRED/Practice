@@ -243,4 +243,12 @@ public class ArraysTest {
         assertEquals(firstResultArray, new int[]{15, 7, 6, 1, 0, -1, -2, -3, -8, -9, -11, -33});
         assertEquals(secondResultArray, new int[]{-16, -8, -7, -2, -1, 0, 1, 2, 7, 8, 10, 32});
     }
+
+    @Test
+    private void testSumPares() {
+        int[] array1 = new int[]{1, 6, 2, 5, 3, 4};
+        int[] array2 = new int[]{1, 6, 2, 5, 3, 4, 7};
+        assertEquals(arrayTest.sumPares(array1), new int[]{7, 7, 7});
+        assertEquals(arrayTest.sumPares(array2), new int[]{7, 7, 7, 7});
+    }
 }

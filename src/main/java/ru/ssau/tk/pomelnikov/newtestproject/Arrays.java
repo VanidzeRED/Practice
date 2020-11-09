@@ -293,4 +293,16 @@ public class Arrays {
         }
         return newArray;
     }
+
+    public int[] sumPares(int[] array) {
+        int length = array.length;
+        int newLength = (length % 2 == 0) ? array.length / 2 : array.length / 2 + 1;
+        int[] newArray = new int[newLength];
+        int flag = 0;
+        for (int i = 0; i < newLength; i++) {
+            newArray[i] = (i + flag + 1 < length) ? array[i + flag] + array[i + flag + 1] : array[i + flag];
+            flag++;
+        }
+        return newArray;
+    }
 }
