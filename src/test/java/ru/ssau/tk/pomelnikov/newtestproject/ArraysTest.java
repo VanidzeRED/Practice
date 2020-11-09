@@ -227,11 +227,20 @@ public class ArraysTest {
     }
 
     @Test
-    private void testByteNegate(){
+    private void testByteNegate() {
         int[] array = new int[]{-16, -8, -7, -2, -1, 0, 1, 2, 7, 8, 10, 32};
         arrayTest.byteNegate(array);
         assertEquals(array, new int[]{15, 7, 6, 1, 0, -1, -2, -3, -8, -9, -11, -33});
         arrayTest.byteNegate(array);
         assertEquals(array, new int[]{-16, -8, -7, -2, -1, 0, 1, 2, 7, 8, 10, 32});
+    }
+
+    @Test
+    private void testByteNegateNewArray() {
+        int[] array = new int[]{-16, -8, -7, -2, -1, 0, 1, 2, 7, 8, 10, 32};
+        int[] firstResultArray = arrayTest.byteNegateNewArray(array);
+        int[] secondResultArray = arrayTest.byteNegateNewArray(firstResultArray);
+        assertEquals(firstResultArray, new int[]{15, 7, 6, 1, 0, -1, -2, -3, -8, -9, -11, -33});
+        assertEquals(secondResultArray, new int[]{-16, -8, -7, -2, -1, 0, 1, 2, 7, 8, 10, 32});
     }
 }

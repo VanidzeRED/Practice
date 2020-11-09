@@ -285,4 +285,12 @@ public class Arrays {
             array[i] = ~array[i];
         }
     }
+
+    public int[] byteNegateNewArray(int[] array) {
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = ~array[i];
+        }
+        return newArray;
+    }
 }
