@@ -190,4 +190,11 @@ public class ArraysTest {
         assertTrue(arrayTest.isMultiple(new int[]{10, 100, 50, 58, 60, 3}));
         assertFalse(arrayTest.isMultiple(new int[]{10, 100, 50, 58, 60, 2}));
     }
+
+    @Test
+    private void testFindMostPopular() {
+        assertEquals(arrayTest.findMostPopular(new int[]{1, 2, 3, 4, 1, 2}), 1);
+        assertEquals(arrayTest.findMostPopular(new int[]{-1, 2, 2, 3, -1, -1, 2}), -1);
+        assertEquals(arrayTest.findMostPopular(new int[]{1, 1, 2, 2, 2, 1}), 1);
+    }
 }

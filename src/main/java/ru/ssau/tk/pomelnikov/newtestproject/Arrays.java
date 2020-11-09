@@ -146,7 +146,7 @@ public class Arrays {
         boolean[] helpArray = new boolean[arg];
         int count = 0;
         for (int i = 1; i < arg; i++) {
-            helpArray[i] = Arrays.isPrime(i + 1);
+            helpArray[i] = isPrime(i + 1);
             if (helpArray[i]) {
                 count++;
             }
@@ -231,5 +231,25 @@ public class Arrays {
             if (array[i] % array[array.length - 1] == 0) count2++;
         }
         return count1 > count2;
+    }
+
+    public int findMostPopular(int[] array) {
+        int length = array.length;
+        int[] newArray = new int[length];
+        for (int i = 0; i < length - 1; i++) {
+            newArray[i] = 1;
+            for (int j = i + 1; j < length; j++) {
+                if (array[i] == array[j]) newArray[i]++;
+            }
+        }
+        int max = newArray[0];
+        int maxIndex = 0;
+        for (int i = 1; i < length; i++) {
+            if (newArray[i] > max) {
+                max = newArray[i];
+                maxIndex = i;
+            }
+        }
+        return array[maxIndex];
     }
 }
