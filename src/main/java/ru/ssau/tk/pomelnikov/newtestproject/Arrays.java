@@ -92,104 +92,113 @@ public class Arrays {
         return newArray;
     }
 
-    public double[] fillArrayArithmeticProgression(int count, double begin, double difference){
+    public double[] fillArrayArithmeticProgression(int count, double begin, double difference) {
         double[] filledArray = new double[count];
         filledArray[0] = begin;
-        for (int i=1; i<count; i++){
-            filledArray[i] = filledArray[i-1] + difference;
+        for (int i = 1; i < count; i++) {
+            filledArray[i] = filledArray[i - 1] + difference;
         }
         return filledArray;
     }
 
-    public double[] fillArrayGeometricProgression(int count, double begin, double denominator){
+    public double[] fillArrayGeometricProgression(int count, double begin, double denominator) {
         double[] filledArray = new double[count];
         filledArray[0] = begin;
-        for (int i=1; i<count; i++){
-            filledArray[i] = filledArray[i-1] * denominator;
+        for (int i = 1; i < count; i++) {
+            filledArray[i] = filledArray[i - 1] * denominator;
         }
         return filledArray;
     }
 
-    public int[] findDenominators(int arg){
+    public int[] findDenominators(int arg) {
         int borderValue = (int) Math.sqrt(arg) + 1;
         int count = 0;
         boolean[] helpArray = new boolean[borderValue];
-        for (int i=0; i < borderValue; i++){
-            if (arg % (i+1) == 0){
+        for (int i = 0; i < borderValue; i++) {
+            if (arg % (i + 1) == 0) {
                 helpArray[i] = true;
                 count++;
-            }
-            else {
+            } else {
                 helpArray[i] = false;
             }
         }
         int[] newArray = new int[count];
         int flag = 0;
-        for (int i=0; i < borderValue; i++){
-            if (helpArray[i]){
-                newArray[flag++] = i+1;
+        for (int i = 0; i < borderValue; i++) {
+            if (helpArray[i]) {
+                newArray[flag++] = i + 1;
             }
         }
         return newArray;
     }
 
-    public static boolean isPrime(int arg){
+    public static boolean isPrime(int arg) {
         int count = 0;
-        for (int i = 1; i <= arg; i++){
-            if (arg % i == 0){
+        for (int i = 1; i <= arg; i++) {
+            if (arg % i == 0) {
                 count++;
             }
         }
         return count == 2;
     }
 
-    public int[] findPrime(int arg){
+    public int[] findPrime(int arg) {
         boolean[] helpArray = new boolean[arg];
         int count = 0;
-        for (int i = 1; i < arg; i++){
-            helpArray[i] = Arrays.isPrime(i+1);
-            if (helpArray[i]){
+        for (int i = 1; i < arg; i++) {
+            helpArray[i] = Arrays.isPrime(i + 1);
+            if (helpArray[i]) {
                 count++;
             }
         }
         int[] newArray = new int[count];
         int flag = 0;
-        for (int i = 1; i < arg; i++){
-            if (helpArray[i]){
-                newArray[flag++] = i+1;
+        for (int i = 1; i < arg; i++) {
+            if (helpArray[i]) {
+                newArray[flag++] = i + 1;
             }
         }
         return newArray;
     }
 
-    public int[] fillArrayMirror(int arg){
+    public int[] fillArrayMirror(int arg) {
         int[] newArray = new int[arg];
         int center = (arg % 2 == 1) ? arg / 2 : arg / 2 - 1;
-        for (int i = 0; i <= center; i++){
-            newArray[i] = i+1;
+        for (int i = 0; i <= center; i++) {
+            newArray[i] = i + 1;
         }
         int flag = 1;
-        for (int i = arg-1; i > center; i--){
+        for (int i = arg - 1; i > center; i--) {
             newArray[i] = flag++;
         }
         return newArray;
     }
 
-    public boolean isInArray(int[] array, int arg){
-        for (int i = 0; i<array.length; i++){
-            if (array[i] == arg){
+    public boolean isInArray(int[] array, int arg) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == arg) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean isNullInArray(Integer[] objects){
-        for (int i = 0; i<objects.length; i++){
-            if (objects[i] == null){
+    public boolean isNullInArray(Integer[] objects) {
+        for (int i = 0; i < objects.length; i++) {
+            if (objects[i] == null) {
                 return true;
             }
         }
         return false;
+    }
+
+    public int findCountOfEven(int[] array) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
     }
 }

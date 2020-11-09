@@ -96,21 +96,21 @@ public class ArraysTest {
     }
 
     @Test
-    private void fillArrayArithmeticProgressionTest(){
+    private void fillArrayArithmeticProgressionTest() {
         assertEquals(arrayTest.fillArrayArithmeticProgression(5, 0, 1), new double[]{0., 1., 2., 3., 4.});
         assertEquals(arrayTest.fillArrayArithmeticProgression(5, -0.5, 0.5), new double[]{-0.5, 0., 0.5, 1., 1.5});
         assertEquals(arrayTest.fillArrayArithmeticProgression(5, 1.6, -0.8), new double[]{1.6, 0.8, 0, -0.8, -1.6});
     }
 
     @Test
-    private void fillArrayGeometricProgressionTest(){
+    private void fillArrayGeometricProgressionTest() {
         assertEquals(arrayTest.fillArrayGeometricProgression(5, 1, 2), new double[]{1., 2., 4., 8., 16.});
         assertEquals(arrayTest.fillArrayGeometricProgression(5, 2, -2), new double[]{2., -4., 8., -16., 32.});
         assertEquals(arrayTest.fillArrayGeometricProgression(4, 1, 0.5), new double[]{1., 0.5, 0.25, 0.125});
     }
 
     @Test
-    private void findDenominatorsTest(){
+    private void findDenominatorsTest() {
         assertEquals(arrayTest.findDenominators(2), new int[]{1, 2});
         assertEquals(arrayTest.findDenominators(18), new int[]{1, 2, 3});
         assertEquals(arrayTest.findDenominators(27), new int[]{1, 3});
@@ -118,7 +118,7 @@ public class ArraysTest {
     }
 
     @Test
-    private void testIsPrime(){
+    private void testIsPrime() {
         assertTrue(Arrays.isPrime(2));
         assertTrue(Arrays.isPrime(5));
         assertTrue(Arrays.isPrime(13));
@@ -128,21 +128,21 @@ public class ArraysTest {
     }
 
     @Test
-    private void testFindPrime(){
+    private void testFindPrime() {
         assertEquals(arrayTest.findPrime(10), new int[]{2, 3, 5, 7});
         assertEquals(arrayTest.findPrime(23), new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23});
         assertEquals(arrayTest.findPrime(2), new int[]{2});
     }
 
     @Test
-    private void testFillArrayMirror(){
+    private void testFillArrayMirror() {
         assertEquals(arrayTest.fillArrayMirror(7), new int[]{1, 2, 3, 4, 3, 2, 1});
         assertEquals(arrayTest.fillArrayMirror(2), new int[]{1, 1});
         assertEquals(arrayTest.fillArrayMirror(8), new int[]{1, 2, 3, 4, 4, 3, 2, 1});
     }
 
     @Test
-    private void testIsInArray(){
+    private void testIsInArray() {
         int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         assertTrue(arrayTest.isInArray(array, 0));
         assertTrue(arrayTest.isInArray(array, 3));
@@ -153,7 +153,7 @@ public class ArraysTest {
     }
 
     @Test
-    private void testIsNullInArray(){
+    private void testIsNullInArray() {
         Integer[] array1 = new Integer[]{1, 2, 3};
         Integer[] array2 = new Integer[]{1, null, 3};
         Integer[] array3 = new Integer[]{null, null};
@@ -161,5 +161,12 @@ public class ArraysTest {
         assertTrue(arrayTest.isNullInArray(array3));
         assertFalse(arrayTest.isNullInArray(array1));
 
+    }
+
+    @Test
+    private void testFindNumberOfEven() {
+        assertEquals(arrayTest.findCountOfEven(new int[]{1, 2, 1, 2, 1}), 2);
+        assertEquals(arrayTest.findCountOfEven(new int[]{1, 3, 5, 7, 9}), 0);
+        assertEquals(arrayTest.findCountOfEven(new int[]{1, 2, 4, 6, 10}), 4);
     }
 }
