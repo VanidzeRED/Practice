@@ -265,4 +265,9 @@ public class ArraysTest {
         assertEquals(arrayTest.fillCycle(8,2), new int[]{7, 8, 1, 2, 3, 4, 5, 6});
         assertEquals(arrayTest.fillCycle(4,1), new int[]{4, 1, 2, 3});
     }
+
+    @Test
+    private void testCutLong(){
+        assertEquals(arrayTest.cutLong(0b1110010110001110011000110011000111110011001100110111111100010101L), new int[]{0b11100101100011100110001100110001, 0b11110011001100110111111100010101});
+    }
 }

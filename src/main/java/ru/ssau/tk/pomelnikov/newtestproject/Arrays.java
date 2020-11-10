@@ -317,7 +317,8 @@ public class Arrays {
 
     public int[] cutLong(long arg) {
         int[] newArray = new int[2];
-        //newArray[0] =
+        newArray[0] = (int) arg >>> 32;
+        newArray[1] = (int) arg;
         return newArray;
     }
 
