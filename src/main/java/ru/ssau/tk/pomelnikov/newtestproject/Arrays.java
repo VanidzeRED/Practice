@@ -314,4 +314,15 @@ public class Arrays {
         }
         return newArray;
     }
+
+    public int[] cutLong(long arg){
+        int[] newArray = new int[2];
+        return newArray;
+    }
+
+    public int[] fillCycle(int length, int index){
+        int flag = 1;
+        int[] newArray = new int[length];
+        return newArray;
+    }
 }
