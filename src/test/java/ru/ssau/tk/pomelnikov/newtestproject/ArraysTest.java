@@ -258,4 +258,11 @@ public class ArraysTest {
         assertEquals(arrayTest.isEven(new int[]{1, 5, 3}), new boolean[]{false, false, false});
         assertEquals(arrayTest.isEven(new int[]{2, 4, 6}), new boolean[]{true, true, true});
     }
+
+    @Test
+    private void testFillCycle(){
+        assertEquals(arrayTest.fillCycle(5,3), new int[]{3, 4, 5, 1, 2});
+        assertEquals(arrayTest.fillCycle(8,2), new int[]{7, 8, 1, 2, 3, 4, 5, 6});
+        assertEquals(arrayTest.fillCycle(4,1), new int[]{4, 1, 2, 3});
+    }
 }
