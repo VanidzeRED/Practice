@@ -56,12 +56,14 @@ public class Matrices {
         if (n != m) {
             return Double.NaN;
         }
+        if (n == 1) {
+            return matrix.getAt(0, 0);
+        }
         if (n == 2) {
             return matrix.getAt(0, 0) * matrix.getAt(1, 1) - matrix.getAt(0, 1) * matrix.getAt(1, 0);
         }
         double determinate = 0;
         for (int i = 0; i < n; i++) {
-
         }
         return determinate;
     }

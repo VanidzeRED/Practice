@@ -10,6 +10,7 @@ public class MatricesTest {
     static Matrix secondMatrix = new Matrix(2, 2);
     static Matrix thirdMatrix = new Matrix(3, 2);
     static Matrix fourthMatrix = new Matrix(2, 1);
+    static Matrix fifthMatrix = new Matrix(4, 4);
 
     public static void fillMatrices() {
         for (int i = 0; i < firstMatrix.getN(); i++) {
@@ -23,10 +24,16 @@ public class MatricesTest {
                 thirdMatrix.setAt(i, j, 3);
             }
         }
-
         for (int i = 0; i < fourthMatrix.getN(); i++) {
             for (int j = 0; j < fourthMatrix.getM(); j++) {
                 fourthMatrix.setAt(i, j, 4);
+            }
+        }
+        double flag = 0;
+        for (int i = 0; i < fifthMatrix.getN(); i++) {
+            for (int j = 0; j < fifthMatrix.getM(); j++) {
+                fifthMatrix.setAt(i, j, i >= j ? 1 + flag : flag);
+                flag++;
             }
         }
     }
@@ -85,5 +92,15 @@ public class MatricesTest {
                 assertEquals(result2.getAt(i, j), 8.);
             }
         }
+    }
+
+    @Test
+    public void testFindGeterminate() {
+        MatricesTest.fillMatrices();
+        assertEquals(Matrices.findDeterminate(firstMatrix), 0.);
+        assertEquals(Matrices.findDeterminate(secondMatrix), 0.);
+        assertEquals(Matrices.findDeterminate(thirdMatrix), Double.NaN);
+        assertEquals(Matrices.findDeterminate(fourthMatrix), Double.NaN);
+
     }
 }
