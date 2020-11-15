@@ -143,12 +143,19 @@ public class ArraysTest {
     @Test
     public void testIsInArray() {
         int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        double[] arrayDouble = new double[]{0, 1, 2, 3, 4, Double.NaN, 5, 6, 7, 8, 9};
         assertTrue(arrayTest.isInArray(array, 0));
         assertTrue(arrayTest.isInArray(array, 3));
         assertTrue(arrayTest.isInArray(array, 9));
         assertFalse(arrayTest.isInArray(array, -5));
         assertFalse(arrayTest.isInArray(array, 10));
         assertFalse(arrayTest.isInArray(array, -1));
+        assertTrue(arrayTest.isInArray(arrayDouble, 0.));
+        assertTrue(arrayTest.isInArray(arrayDouble, 3.));
+        assertTrue(arrayTest.isInArray(arrayDouble, 9.));
+        assertFalse(arrayTest.isInArray(arrayDouble, -5.));
+        assertFalse(arrayTest.isInArray(arrayDouble, 10.));
+        assertFalse(arrayTest.isInArray(arrayDouble, -1.));
     }
 
     @Test
@@ -270,5 +277,17 @@ public class ArraysTest {
         assertEquals(arrayTest.cutLong(0b1110010110001110011000110011000111110011001100110111111100010101L), new int[]{0b11100101100011100110001100110001, 0b11110011001100110111111100010101});
         assertEquals(arrayTest.cutLong(0b0000000000000000000000001100011011100000000000000000000000000111L), new int[]{0b00000000000000000000000011000110, 0b11100000000000000000000000000111});
         assertEquals(arrayTest.cutLong(512L), new int[]{0, 512});
+    }
+
+    @Test
+    public void testSortArray(){
+        double[] array1 = new double[]{1., 9., 2., 3., 45., 70.};
+        double[] array2 = new double[]{1., 9., 6., 4., 45., 70., Double.NaN};
+        arrayTest.sortArray(array1);
+        arrayTest.sortArray(array2);
+        assertEquals(array1, new double[]{1., 2., 3., 9., 45., 70.});
+        assertEquals(array2[1], 9.);
+        assertEquals(array2[2], 6.);
+        assertEquals(array2[array2.length-1], Double.NaN);
     }
 }

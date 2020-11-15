@@ -183,6 +183,15 @@ public class Arrays {
         return false;
     }
 
+    public boolean isInArray(double[] array, double arg) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == (arg)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isNullInArray(Integer[] objects) {
         for (int i = 0; i < objects.length; i++) {
             if (objects[i] == null) {
@@ -332,5 +341,14 @@ public class Arrays {
             newArray[i] = flag++;
         }
         return newArray;
+    }
+
+    public void sortArray(double[] array) {
+        for (double currentElement : array) {
+            if (Double.isNaN(currentElement)) {
+                return;
+            }
+        }
+        java.util.Arrays.sort(array);
     }
 }
