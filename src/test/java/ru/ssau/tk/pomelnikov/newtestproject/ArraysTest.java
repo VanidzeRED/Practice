@@ -280,7 +280,7 @@ public class ArraysTest {
     }
 
     @Test
-    public void testSortArray(){
+    public void testSortArray() {
         double[] array1 = new double[]{1., 9., 2., 3., 45., 70.};
         double[] array2 = new double[]{1., 9., 6., 4., 45., 70., Double.NaN};
         arrayTest.sortArray(array1);
@@ -288,7 +288,12 @@ public class ArraysTest {
         assertEquals(array1, new double[]{1., 2., 3., 9., 45., 70.});
         assertEquals(array2[1], 9.);
         assertEquals(array2[2], 6.);
-        assertEquals(array2[array2.length-1], Double.NaN);
+        assertEquals(array2[array2.length - 1], Double.NaN);
     }
 
+    @Test
+    public void testMultiplyOfElements() {
+        double[] array = new double[]{2, Double.NaN, 2, 0, 2, Double.NEGATIVE_INFINITY, 5, Double.POSITIVE_INFINITY, 0};
+        assertEquals(arrayTest.multiplyOfElements(array), 40.);
+    }
 }

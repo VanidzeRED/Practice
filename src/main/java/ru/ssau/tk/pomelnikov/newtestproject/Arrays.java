@@ -352,9 +352,19 @@ public class Arrays {
         java.util.Arrays.sort(array);
     }
 
-    public void arrayToConsole(String[] array){
-        for (String currentString : array){
+    public void arrayToConsole(String[] array) {
+        for (String currentString : array) {
             System.out.println(currentString);
         }
+    }
+
+    public double multiplyOfElements(double[] array) {
+        double multiply = 1;
+        for (double elem : array) {
+            if (!Double.isNaN(elem) & !Double.isInfinite(elem) & (elem != 0)) {
+                multiply *= elem;
+            }
+        }
+        return multiply;
     }
 }
