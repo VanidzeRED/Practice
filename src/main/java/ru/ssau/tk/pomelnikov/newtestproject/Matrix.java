@@ -1,9 +1,9 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
 public class Matrix {
-    private static int n;
-    private static int m;
-    private static double[][] matrix;
+    private final int n;
+    private final int m;
+    private final double[][] matrix;
 
     public double getAt(int n, int m) {
         return matrix[n][m];
