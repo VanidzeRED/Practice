@@ -6,6 +6,8 @@ public class MainClass {
         person.setFirstName("Arkadiy");
         checkAnotherPerson(person);
         System.out.println(person.getFirstName());
+        Arrays arrays = new Arrays();
+        arrays.arrayToConsole(new String[]{"qwe", "rtyu", "asdf", "nbvcxz"});
     }
 
     private static void checkAnotherPerson(Person person) {

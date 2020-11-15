@@ -351,4 +351,10 @@ public class Arrays {
         }
         java.util.Arrays.sort(array);
     }
+
+    public void arrayToConsole(String[] array){
+        for (String currentString : array){
+            System.out.println(currentString);
+        }
+    }
 }

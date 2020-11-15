@@ -290,4 +290,5 @@ public class ArraysTest {
         assertEquals(array2[2], 6.);
         assertEquals(array2[array2.length-1], Double.NaN);
     }
+
 }
