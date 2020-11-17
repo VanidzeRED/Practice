@@ -53,4 +53,10 @@ public class ClassForString {
     public int indexOfPart(String firstString, String secondString) {
         return firstString.indexOf(secondString);
     }
+
+    public int indexOfSecondPart(String firstString, String secondString) {
+        int middle = firstString.length() / 2;
+
+        return firstString.indexOf(secondString, middle);
+    }
 }

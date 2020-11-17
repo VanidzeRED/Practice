@@ -60,4 +60,12 @@ public class ClassForStringTest {
         assertEquals(stringTest.indexOfPart("Turmion katlot", "n k"), 6);
         assertEquals(stringTest.indexOfPart("Turmion katlot", "nk"), -1);
     }
+
+    @Test
+    public void indexOfSecondPart() {
+        assertEquals(stringTest.indexOfSecondPart("qwerty", "ty"), 4);
+        assertEquals(stringTest.indexOfSecondPart("Hello", "ll"), 2);
+        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", " k"), 7);
+        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", "ur"), -1);
+    }
 }
