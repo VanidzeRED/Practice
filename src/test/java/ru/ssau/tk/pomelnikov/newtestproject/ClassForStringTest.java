@@ -47,4 +47,9 @@ public class ClassForStringTest {
         assertFalse(stringTest.isEqual("Hello!", null));
         assertFalse(stringTest.isEqual(null, null));
     }
+
+    @Test
+    public void screaningSymbolsTest() {
+        stringTest.screaningSymbols();
+    }
 }
