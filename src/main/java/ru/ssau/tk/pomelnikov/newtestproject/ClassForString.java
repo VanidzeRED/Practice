@@ -56,7 +56,11 @@ public class ClassForString {
 
     public int indexOfSecondPart(String firstString, String secondString) {
         int middle = firstString.length() / 2;
-
         return firstString.indexOf(secondString, middle);
+    }
+
+    public int lastIndexOfFirstPart(String firstString, String secondString) {
+        int middle = firstString.length() % 2 == 0 ? firstString.length() / 2 : firstString.length() / 2 + 1;
+        return firstString.lastIndexOf(secondString, middle);
     }
 }

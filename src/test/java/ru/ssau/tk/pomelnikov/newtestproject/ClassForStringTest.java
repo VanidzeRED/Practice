@@ -63,9 +63,9 @@ public class ClassForStringTest {
 
     @Test
     public void indexOfSecondPart() {
-        assertEquals(stringTest.indexOfSecondPart("qwerty", "ty"), 4);
-        assertEquals(stringTest.indexOfSecondPart("Hello", "ll"), 2);
-        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", " k"), 7);
-        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", "ur"), -1);
+        assertEquals(stringTest.indexOfSecondPart("qwerty", "we"), 1);
+        assertEquals(stringTest.indexOfSecondPart("Hello", "ll"), -1);
+        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", "ur"), 1);
+        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", "kat"), -1);
     }
 }
