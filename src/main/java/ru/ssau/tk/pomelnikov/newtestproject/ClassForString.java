@@ -30,4 +30,12 @@ public class ClassForString {
         }
         return true;
     }
+
+    public boolean isEqual(String firstString, String secondString) {
+        if ((firstString == null) || (secondString == null)) {
+            return false;
+        } else {
+            return !(firstString.equals(secondString)) & (firstString.equalsIgnoreCase(secondString));
+        }
+    }
 }

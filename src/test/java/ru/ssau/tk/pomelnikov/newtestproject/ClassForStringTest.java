@@ -9,14 +9,14 @@ public class ClassForStringTest {
     private static ClassForString stringTest = new ClassForString();
 
     @Test
-    public void stingToConsoleTest(){
+    public void stingToConsoleTest() {
         stringTest.stringToConsole("qwerty ");
         stringTest.stringToConsole("Hello, World! ");
         stringTest.stringToConsole("Java is my favourite language");
     }
 
     @Test
-    public void stingToBytesTest(){
+    public void stingToBytesTest() {
         stringTest.stringToBytes("qwerty");
         System.out.println("-");
         stringTest.stringToBytes("Hello!");
@@ -25,15 +25,26 @@ public class ClassForStringTest {
     }
 
     @Test
-    public void equalStringTest(){
+    public void equalStringTest() {
         stringTest.equalString();
     }
 
     @Test
-    public void isPalindromTest(){
-        System.out.println(stringTest.isPalindrom("qwertytrewq"));
-        System.out.println(stringTest.isPalindrom("abba"));
-        System.out.println(stringTest.isPalindrom("buba"));
-        System.out.println(stringTest.isPalindrom("qwerty"));
+    public void isPalindromTest() {
+        assertTrue(stringTest.isPalindrom("qwertytrewq"));
+        assertTrue(stringTest.isPalindrom("abba"));
+        assertFalse(stringTest.isPalindrom("buba"));
+        assertFalse(stringTest.isPalindrom("qwerty"));
+    }
+
+    @Test
+    public void isEqualTest() {
+        assertTrue(stringTest.isEqual("AAA", "aaa"));
+        assertTrue(stringTest.isEqual("AbC", "aBC"));
+        assertFalse(stringTest.isEqual("Qwe", "Qwe"));
+        assertFalse(stringTest.isEqual("rty", "UIO"));
+        assertFalse(stringTest.isEqual(null, "world"));
+        assertFalse(stringTest.isEqual("Hello!", null));
+        assertFalse(stringTest.isEqual(null, null));
     }
 }
