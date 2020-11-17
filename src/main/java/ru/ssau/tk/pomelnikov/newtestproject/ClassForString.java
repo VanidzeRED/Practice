@@ -49,4 +49,8 @@ public class ClassForString {
         System.out.println("Символ\"№" + ++i);
         System.out.println("Символ\\№" + ++i);
     }
+
+    public int indexOfPart(String firstString, String secondString) {
+        return firstString.indexOf(secondString);
+    }
 }

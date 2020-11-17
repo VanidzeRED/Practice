@@ -52,4 +52,12 @@ public class ClassForStringTest {
     public void screaningSymbolsTest() {
         stringTest.screaningSymbols();
     }
+
+    @Test
+    public void indexOfPart() {
+        assertEquals(stringTest.indexOfPart("qwerty", "ty"), 4);
+        assertEquals(stringTest.indexOfPart("Hello", "ll"), 2);
+        assertEquals(stringTest.indexOfPart("Turmion katlot", "n k"), 6);
+        assertEquals(stringTest.indexOfPart("Turmion katlot", "nk"), -1);
+    }
 }
