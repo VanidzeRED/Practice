@@ -76,4 +76,11 @@ public class ClassForStringTest {
         assertEquals(stringTest.lastIndexOfFirstPart("Turmion katilot", "we"), -1);
         assertEquals(stringTest.lastIndexOfFirstPart("Turmion katilot", "mi"), 3);
     }
+
+    @Test
+    public void countOfStartAndEndTest() {
+        assertEquals(stringTest.countOfStartAndEnd(new String[]{"qwertyuiop", "qwefvbnmop", "qweasdfgop"}, "qwe", "op"), 3);
+        assertEquals(stringTest.countOfStartAndEnd(new String[]{"qwertyuiop", "qwefvbnmop", "qweasdfiop"}, "qwe", "iop"), 2);
+        assertEquals(stringTest.countOfStartAndEnd(new String[]{"qwertyuiop", "qwefvbnmop", "qweasdfgop"}, "we", "gop"), 0);
+    }
 }

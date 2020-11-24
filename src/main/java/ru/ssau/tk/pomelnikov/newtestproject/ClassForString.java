@@ -63,4 +63,14 @@ public class ClassForString {
         int middle = firstString.length() % 2 == 0 ? firstString.length() / 2 : firstString.length() / 2 + 1;
         return firstString.lastIndexOf(secondString, middle);
     }
+
+    public int countOfStartAndEnd(String[] arrayStr, String prefix, String postfix) {
+        int count = 0;
+        for (String currentStr : arrayStr) {
+            if (currentStr.startsWith(prefix) && currentStr.endsWith(postfix)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
