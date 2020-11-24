@@ -73,4 +73,14 @@ public class ClassForString {
         }
         return count;
     }
+
+    public int countOfStartAndEndIgnoreSpace(String[] arrayStr, String prefix, String postfix) {
+        int count = 0;
+        for (String currentStr : arrayStr) {
+            if (currentStr.trim().startsWith(prefix) && currentStr.trim().endsWith(postfix)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

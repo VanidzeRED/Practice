@@ -83,4 +83,11 @@ public class ClassForStringTest {
         assertEquals(stringTest.countOfStartAndEnd(new String[]{"qwertyuiop", "qwefvbnmop", "qweasdfiop"}, "qwe", "iop"), 2);
         assertEquals(stringTest.countOfStartAndEnd(new String[]{"qwertyuiop", "qwefvbnmop", "qweasdfgop"}, "we", "gop"), 0);
     }
+
+    @Test
+    public void countOfStartAndEndIgnoreSpaceTest() {
+        assertEquals(stringTest.countOfStartAndEndIgnoreSpace(new String[]{"  qwertyuiop   ", "  qwefvbnmop ", "   qweasdfgop  "}, "qwe", "op"), 3);
+        assertEquals(stringTest.countOfStartAndEndIgnoreSpace(new String[]{"  qwertyuiop", "  qwefvbnmop  ", " qweasdfi o p  "}, "qwe", "op"), 2);
+        assertEquals(stringTest.countOfStartAndEndIgnoreSpace(new String[]{"  qwert  yuiop  ", " qwe fvbn mop ", " qwea sd fg op "}, "we", "gop"), 0);
+    }
 }
