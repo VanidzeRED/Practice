@@ -54,18 +54,26 @@ public class ClassForStringTest {
     }
 
     @Test
-    public void indexOfPart() {
+    public void indexOfPartTest() {
         assertEquals(stringTest.indexOfPart("qwerty", "ty"), 4);
         assertEquals(stringTest.indexOfPart("Hello", "ll"), 2);
-        assertEquals(stringTest.indexOfPart("Turmion katlot", "n k"), 6);
-        assertEquals(stringTest.indexOfPart("Turmion katlot", "nk"), -1);
+        assertEquals(stringTest.indexOfPart("Turmion katilot", "n k"), 6);
+        assertEquals(stringTest.indexOfPart("Turmion katilot", "nk"), -1);
     }
 
     @Test
-    public void indexOfSecondPart() {
-        assertEquals(stringTest.indexOfSecondPart("qwerty", "we"), 1);
-        assertEquals(stringTest.indexOfSecondPart("Hello", "ll"), -1);
-        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", "ur"), 1);
-        assertEquals(stringTest.indexOfSecondPart("Turmion katlot", "kat"), -1);
+    public void indexOfSecondPartTest() {
+        assertEquals(stringTest.indexOfSecondPart("qwerty", "ty"), 4);
+        assertEquals(stringTest.indexOfSecondPart("Hello", "ll"), 2);
+        assertEquals(stringTest.indexOfSecondPart("Turmion katilot", "kat"), 8);
+        assertEquals(stringTest.indexOfSecondPart("Turmion katilot", "n  "), -1);
+    }
+
+    @Test
+    public void lastIndexOfFirstPartTest() {
+        assertEquals(stringTest.lastIndexOfFirstPart("qwerty", "we"), 1);
+        assertEquals(stringTest.lastIndexOfFirstPart("qwertwertytyui", "we"), 5);
+        assertEquals(stringTest.lastIndexOfFirstPart("Turmion katilot", "we"), -1);
+        assertEquals(stringTest.lastIndexOfFirstPart("Turmion katilot", "mi"), 3);
     }
 }
