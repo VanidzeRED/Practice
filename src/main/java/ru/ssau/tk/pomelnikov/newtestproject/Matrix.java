@@ -26,4 +26,19 @@ public class Matrix {
         this.m = m;
         matrix = new double[n][m];
     }
+
+    public String toString() {
+        StringBuilder returnString = new StringBuilder();
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < m; j++) {
+                returnString.append(this.getAt(i, j));
+                if (j != m - 1) {
+                    returnString.append(", ");
+                }
+            }
+            returnString.append(";\n");
+        }
+        return returnString.toString();
+    }
 }
+
