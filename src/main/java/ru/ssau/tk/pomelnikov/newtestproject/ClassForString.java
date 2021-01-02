@@ -96,4 +96,17 @@ public class ClassForString {
         }
         return original;
     }
+
+    public String stringFromTo(String string, int from, int to) {
+        if (from < 0) {
+            from = 0;
+        }
+        if (to > string.length()) {
+            to = string.length();
+        }
+        if (to <= from) {
+            return "";
+        }
+        return string.substring(from, to);
+    }
 }

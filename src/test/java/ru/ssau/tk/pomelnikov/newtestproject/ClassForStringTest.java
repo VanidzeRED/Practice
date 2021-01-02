@@ -97,4 +97,11 @@ public class ClassForStringTest {
         assertEquals(stringTest.replaceStrings("tautauautau", "tau", "t"), "ttt");
         assertEquals(stringTest.replaceStrings("dequeue", "eq", "a"), "daueue");
     }
+
+    @Test
+    public void stringFromToTest(){
+        assertEquals(stringTest.stringFromTo("Ruoska", -1, 10), "Ruoska");
+        assertEquals(stringTest.stringFromTo("Rammstein", 2, 7), "mmste");
+        assertEquals(stringTest.stringFromTo("Grotteque", 5, 1), "");
+    }
 }
