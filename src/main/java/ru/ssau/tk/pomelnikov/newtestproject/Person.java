@@ -62,4 +62,9 @@ public class Person {
         this.passportId = passportId;
         this.gender = gender;
     }
+
+    @Override
+    public String toString (){
+        return this.firstName + " " + this.lastName;
+    }
 }

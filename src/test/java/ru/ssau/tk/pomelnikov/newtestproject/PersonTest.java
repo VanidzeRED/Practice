@@ -5,22 +5,9 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class PersonTest {
-    /*public void testGetSet(){
-        Person firstPerson = new Person();
-        firstPerson.setFirstName("Ivan");
-        firstPerson.setLastName("Pomelnikov");
-        firstPerson.setPassportId(1234);
 
-        Person secondPerson = new Person();
-        firstPerson.setFirstName("Aidar");
-        firstPerson.setLastName("Timirbulatov");
-        firstPerson.setPassportId(5678);
-
-        assertEquals(firstPerson.getFirstName(), "Ivan");
-        assertEquals(firstPerson.getLastName(), "Pomelnikov");
-        assertNotEquals(firstPerson.getPassportId(), 5678);
-        assertEquals(secondPerson.getPassportId(), 5678);
-    }*/
+    Person firstPerson = new Person("Ivan", "Petrov", 1265, Gender.MALE);
+    Person secondPerson = new Person("Marya", "Smirnova", 3597, Gender.FEMALE);
 
     @Test
     public void testFirstName(){
@@ -63,5 +50,11 @@ public class PersonTest {
         somePerson.setGender(Gender.FEMALE);
         assertEquals(somePerson.getGender(), Gender.FEMALE);
         assertNotEquals(somePerson.getGender(), Gender.MALE);
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals(firstPerson.toString(), "Ivan Petrov");
+        assertEquals(secondPerson.toString(), "Marya Smirnova");
     }
 }
