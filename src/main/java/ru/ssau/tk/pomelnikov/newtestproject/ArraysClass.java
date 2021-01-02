@@ -1,6 +1,9 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
-public class Arrays {
+import java.util.Arrays;
+
+public class ArraysClass {
+
     public double[] setArray(int count) {
         double[] firstArray = new double[count];
         return firstArray;
@@ -366,5 +369,9 @@ public class Arrays {
             }
         }
         return multiply;
+    }
+
+    public void intToHex(int[] array){
+        Arrays.stream(array).forEach(value -> System.out.println(Integer.toHexString(value)));
     }
 }

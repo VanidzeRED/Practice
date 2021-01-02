@@ -5,7 +5,7 @@ import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
 public class ArraysTest {
-    Arrays arrayTest = new Arrays();
+    ArraysClass arrayTest = new ArraysClass();
 
     @Test
     public void setArrayTest() {
@@ -118,12 +118,12 @@ public class ArraysTest {
 
     @Test
     public void testIsPrime() {
-        assertTrue(Arrays.isPrime(2));
-        assertTrue(Arrays.isPrime(5));
-        assertTrue(Arrays.isPrime(13));
-        assertFalse(Arrays.isPrime(4));
-        assertFalse(Arrays.isPrime(10));
-        assertFalse(Arrays.isPrime(75));
+        assertTrue(ArraysClass.isPrime(2));
+        assertTrue(ArraysClass.isPrime(5));
+        assertTrue(ArraysClass.isPrime(13));
+        assertFalse(ArraysClass.isPrime(4));
+        assertFalse(ArraysClass.isPrime(10));
+        assertFalse(ArraysClass.isPrime(75));
     }
 
     @Test
@@ -295,5 +295,12 @@ public class ArraysTest {
     public void testMultiplyOfElements() {
         double[] array = new double[]{2, Double.NaN, 2, 0, 2, Double.NEGATIVE_INFINITY, 5, Double.POSITIVE_INFINITY, 0};
         assertEquals(arrayTest.multiplyOfElements(array), 40.);
+    }
+
+    @Test
+    public void testIntToHex(){
+        arrayTest.intToHex(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16});
+        System.out.println('\n');
+        arrayTest.intToHex(new int[] {17, 33, 65, 129, 257, 513, 1025});
     }
 }
