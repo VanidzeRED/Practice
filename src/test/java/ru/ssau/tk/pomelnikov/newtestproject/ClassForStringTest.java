@@ -90,4 +90,11 @@ public class ClassForStringTest {
         assertEquals(stringTest.countOfStartAndEndIgnoreSpace(new String[]{"  qwertyuiop", "  qwefvbnmop  ", " qweasdfi o p  "}, "qwe", "op"), 2);
         assertEquals(stringTest.countOfStartAndEndIgnoreSpace(new String[]{"  qwert  yuiop  ", " qwe fvbn mop ", " qwea sd fg op "}, "we", "gop"), 0);
     }
+
+    @Test
+    public void replaceStringsTest() {
+        assertEquals(stringTest.replaceStrings("ороророро", "оро", "ро"), "роррро");
+        assertEquals(stringTest.replaceStrings("tautauautau", "tau", "t"), "ttt");
+        assertEquals(stringTest.replaceStrings("dequeue", "eq", "a"), "daueue");
+    }
 }

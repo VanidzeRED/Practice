@@ -1,6 +1,7 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
 public class ClassForString {
+
     public void stringToConsole(String string) {
         for (int i = 0; i < string.length(); i++) {
             System.out.println(string.charAt(i));
@@ -82,5 +83,17 @@ public class ClassForString {
             }
         }
         return count;
+    }
+
+    public String replaceStrings(String original, String entering, String replacer) {
+        int flag = 1;
+        while (flag <= 100) {
+            if (!original.contains(entering)) {
+                return original;
+            }
+            original = original.replaceAll(entering, replacer);
+            flag++;
+        }
+        return original;
     }
 }
