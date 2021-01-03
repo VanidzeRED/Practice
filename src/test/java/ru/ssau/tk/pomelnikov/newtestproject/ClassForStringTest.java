@@ -4,6 +4,8 @@ import static org.testng.Assert.*;
 
 import org.testng.annotations.Test;
 
+import java.nio.charset.StandardCharsets;
+
 public class ClassForStringTest {
 
     private static ClassForString stringTest = new ClassForString();
@@ -141,5 +143,13 @@ public class ClassForStringTest {
         assertEquals(stringTest.allNumbersBefore(-5), "0 -1 -2 -3 -4 ");
         assertEquals(stringTest.allNumbersBefore(0), "");
         System.out.println(stringTest.allNumbersBefore(10000));
+    }
+
+    @Test
+    public void changeEncoderTest() {
+        System.out.println(stringTest.changeEncoder("qwerty", StandardCharsets.UTF_8, StandardCharsets.ISO_8859_1));
+        System.out.println(stringTest.changeEncoder("qwerty", StandardCharsets.UTF_8, StandardCharsets.UTF_16));
+        System.out.println(stringTest.changeEncoder("qwerty", StandardCharsets.UTF_8, StandardCharsets.US_ASCII));
+        System.out.println(stringTest.changeEncoder("qwerty", StandardCharsets.UTF_8, StandardCharsets.UTF_16BE));
     }
 }

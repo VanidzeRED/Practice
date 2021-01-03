@@ -1,5 +1,6 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -158,5 +159,10 @@ public class ClassForString {
             }
         }
         return newString.toString();
+    }
+
+    public String changeEncoder (String string, Charset decoder, Charset encoder){
+        byte[] bytes = string.getBytes(decoder);
+        return new String(bytes, encoder);
     }
 }
