@@ -134,4 +134,12 @@ public class ClassForStringTest {
         assertEquals(stringTest.newStringBuilder("OOP"), "P2O");
         assertEquals(stringTest.newStringBuilder("aaaaaaaaaaa"), "a01a8a6a4a2a");
     }
+
+    @Test
+    public void allNumbersBeforeTest() {
+        assertEquals(stringTest.allNumbersBefore(5), "0 1 2 3 4 ");
+        assertEquals(stringTest.allNumbersBefore(-5), "0 -1 -2 -3 -4 ");
+        assertEquals(stringTest.allNumbersBefore(0), "");
+        System.out.println(stringTest.allNumbersBefore(10000));
+    }
 }

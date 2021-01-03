@@ -142,4 +142,21 @@ public class ClassForString {
         }
         return newString.reverse().toString();
     }
+
+    public String allNumbersBefore (int arg){
+        StringBuilder newString = new StringBuilder();
+        if (arg > 0){
+            for (int i = 0; i < arg; i++){
+                newString.append(i);
+                newString.append(" ");
+            }
+        }
+        if (arg < 0){
+            for (int i = 0; i > arg; i--){
+                newString.append(i);
+                newString.append(" ");
+            }
+        }
+        return newString.toString();
+    }
 }
