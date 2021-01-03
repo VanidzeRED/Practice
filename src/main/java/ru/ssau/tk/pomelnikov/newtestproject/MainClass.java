@@ -8,6 +8,8 @@ public class MainClass {
         System.out.println(person.getFirstName());
         ArraysClass arrays = new ArraysClass();
         arrays.arrayToConsole(new String[]{"qwe", "rtyu", "asdf", "nbvcxz"});
+        System.out.println("\nКодировка:");
+        System.out.println(java.nio.charset.Charset.defaultCharset());
     }
 
     private static void checkAnotherPerson(Person person) {
