@@ -104,4 +104,13 @@ public class ClassForStringTest {
         assertEquals(stringTest.stringFromTo("Rammstein", 2, 7), "mmste");
         assertEquals(stringTest.stringFromTo("Grotteque", 5, 1), "");
     }
+
+    @Test
+    public void objectToStringTest() {
+        stringTest.objectToString(new NamedPoint());
+        stringTest.objectToString(new Point(1.2, 5.3, -5.69));
+        stringTest.objectToString(new Matrix(2,2));
+        stringTest.objectToString(new Person("Ivan", "Ivanov"));
+        stringTest.objectToString(5);
+    }
 }

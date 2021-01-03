@@ -109,4 +109,8 @@ public class ClassForString {
         }
         return string.substring(from, to);
     }
+
+    public void objectToString(Object object){
+        System.out.println("Описание объекта: " + object.toString());
+    }
 }
