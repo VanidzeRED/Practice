@@ -1,5 +1,6 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public class ClassForString {
@@ -119,13 +120,17 @@ public class ClassForString {
     public String[] stringToArray(String string) {
         String[] arrayString = string.split(" ");
         for (int i = 0; i < arrayString.length; i++) {
-            if (arrayString[i].length() == 1){
+            if (arrayString[i].length() == 1) {
                 arrayString[i] = arrayString[i].toUpperCase();
             }
-            if (arrayString[i].length() >1){
-                arrayString[i] = arrayString[i].substring(0,1).toUpperCase() + arrayString[i].substring(1);
+            if (arrayString[i].length() > 1) {
+                arrayString[i] = arrayString[i].substring(0, 1).toUpperCase() + arrayString[i].substring(1);
             }
         }
         return arrayString;
+    }
+
+    public String arrayToString(String[] array) {
+        return String.join(", ", array);
     }
 }

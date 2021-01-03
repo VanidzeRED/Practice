@@ -120,4 +120,11 @@ public class ClassForStringTest {
         assertEquals(stringTest.stringToArray("Asdrt  hTfss"), new String[] {"Asdrt", "", "HTfss"});
         assertEquals(stringTest.stringToArray("q werty asdfg"), new String[] {"Q", "Werty", "Asdfg"});
     }
+
+    @Test
+    public void arrayToStringTest() {
+        assertEquals(stringTest.arrayToString(new String[] {"Qwe", "Rty", "Uiop"}), "Qwe, Rty, Uiop");
+        assertEquals(stringTest.arrayToString(new String[] {"Asdrt", "", "HTfss"}), "Asdrt, , HTfss");
+        assertEquals(stringTest.arrayToString(new String[] {"Q", "Werty", "Asdfg"}), "Q, Werty, Asdfg");
+    }
 }
