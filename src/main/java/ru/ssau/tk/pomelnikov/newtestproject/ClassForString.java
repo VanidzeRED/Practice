@@ -133,4 +133,13 @@ public class ClassForString {
     public String arrayToString(String[] array) {
         return String.join(", ", array);
     }
+
+    public String newStringBuilder(String string) {
+        StringBuilder newString = new StringBuilder(string);
+        for (int i = 1; i < string.length(); ) {
+            newString.replace(i, i+1, String.valueOf(i + 1));
+            i += 2;
+        }
+        return newString.reverse().toString();
+    }
 }

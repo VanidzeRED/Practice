@@ -127,4 +127,11 @@ public class ClassForStringTest {
         assertEquals(stringTest.arrayToString(new String[] {"Asdrt", "", "HTfss"}), "Asdrt, , HTfss");
         assertEquals(stringTest.arrayToString(new String[] {"Q", "Werty", "Asdfg"}), "Q, Werty, Asdfg");
     }
+
+    @Test
+    public void newStringBuilderTest() {
+        assertEquals(stringTest.newStringBuilder("qwerty"), "6t4e2q");
+        assertEquals(stringTest.newStringBuilder("OOP"), "P2O");
+        assertEquals(stringTest.newStringBuilder("aaaaaaaaaaa"), "a01a8a6a4a2a");
+    }
 }
