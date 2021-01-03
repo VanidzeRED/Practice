@@ -1,5 +1,7 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import java.util.Locale;
+
 public class ClassForString {
 
     public void stringToConsole(String string) {
@@ -110,7 +112,20 @@ public class ClassForString {
         return string.substring(from, to);
     }
 
-    public void objectToString(Object object){
+    public void objectToString(Object object) {
         System.out.println("Описание объекта: " + object.toString());
+    }
+
+    public String[] stringToArray(String string) {
+        String[] arrayString = string.split(" ");
+        for (int i = 0; i < arrayString.length; i++) {
+            if (arrayString[i].length() == 1){
+                arrayString[i] = arrayString[i].toUpperCase();
+            }
+            if (arrayString[i].length() >1){
+                arrayString[i] = arrayString[i].substring(0,1).toUpperCase() + arrayString[i].substring(1);
+            }
+        }
+        return arrayString;
     }
 }

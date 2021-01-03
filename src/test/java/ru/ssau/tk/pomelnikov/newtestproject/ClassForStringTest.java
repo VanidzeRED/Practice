@@ -113,4 +113,11 @@ public class ClassForStringTest {
         stringTest.objectToString(new Person("Ivan", "Ivanov"));
         stringTest.objectToString(5);
     }
+
+    @Test
+    public void stringToArrayTest() {
+        assertEquals(stringTest.stringToArray("qwe rty uiop"), new String[] {"Qwe", "Rty", "Uiop"});
+        assertEquals(stringTest.stringToArray("Asdrt  hTfss"), new String[] {"Asdrt", "", "HTfss"});
+        assertEquals(stringTest.stringToArray("q werty asdfg"), new String[] {"Q", "Werty", "Asdfg"});
+    }
 }
