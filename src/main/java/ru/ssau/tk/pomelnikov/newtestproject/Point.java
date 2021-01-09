@@ -1,8 +1,12 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.lang.Math;
 
-public class Point {
+public class Point implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 6341456290558102780L;
     public final double x;
     public final double y;
     public final double z;
