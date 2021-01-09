@@ -2,6 +2,8 @@ package ru.ssau.tk.pomelnikov.newtestproject;
 
 import org.testng.annotations.Test;
 
+import java.io.*;
+
 import static org.testng.Assert.*;
 
 public class ExceptionsTaskTest {
@@ -44,12 +46,21 @@ public class ExceptionsTaskTest {
     }
 
     @Test
-    public void cloneTest() throws CloneNotSupportedException {
+    public void testClone() throws CloneNotSupportedException {
         CloneClass cloneClass = new CloneClass();
         CloneClassWithInterfaceRealisation cloneClassWithInterfaceRealisation = new CloneClassWithInterfaceRealisation();
         assertThrows(CloneNotSupportedException.class, cloneClass::clone);
         // Throws exception due to not realises interface
         Object object = cloneClassWithInterfaceRealisation.clone();
         // Not throws exception due to realises interface
+    }
+
+    @Test
+    public void testSerialize() throws IOException {
+        exceptionsTask.serialize(new ByteArrayOutputStream(), new Person());
+        exceptionsTask.serialize(new ByteArrayOutputStream(), new Person("Ivan", "Ivanov", 5478, Gender.MALE));
+        assertThrows(NotSerializableException.class, () -> exceptionsTask.serialize(new ByteArrayOutputStream(), new NamedPoint()));
+        assertThrows(NotSerializableException.class, () -> exceptionsTask.serialize(new ByteArrayOutputStream(), new Object()));
+        assertThrows(FileNotFoundException.class, () -> exceptionsTask.serialize(new FileOutputStream(""), new Person()));
     }
 }

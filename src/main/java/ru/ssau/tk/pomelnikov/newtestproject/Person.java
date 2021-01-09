@@ -1,6 +1,11 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
-public class Person {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Person implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 7697637544987288055L;
     private String firstName;
     private String lastName;
     private int passportId;

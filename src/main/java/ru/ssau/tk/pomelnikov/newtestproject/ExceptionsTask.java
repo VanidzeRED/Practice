@@ -1,5 +1,9 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+
 public class ExceptionsTask {
 
     public String personToString(Person person) {
@@ -20,5 +24,10 @@ public class ExceptionsTask {
 
     public int division(String firstNum, String secondNum) {
         return Integer.parseInt(firstNum) / Integer.parseInt(secondNum);
+    }
+
+    public void serialize(OutputStream outputStream, Object object) throws IOException {
+        ObjectOutputStream out = new ObjectOutputStream(outputStream);
+        out.writeObject(object);
     }
 }
