@@ -3,7 +3,7 @@ package ru.ssau.tk.pomelnikov.newtestproject;
 public class ExceptionsTask {
 
     public String personToString(Person person) {
-        return personToString(person);
+        return person.toString();
     }
 
     public char[] findSymbol(String[] array, int n) {
