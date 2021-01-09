@@ -1,9 +1,13 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
 public class Matrices {
-    static Matrix sumMatrices(Matrix firstMatrix, Matrix secondMatrix) {
-        if ((firstMatrix.getM() != secondMatrix.getM()) || (firstMatrix.getN() != secondMatrix.getN())) {
-            return null;
+
+    static Matrix sumMatrices(Matrix firstMatrix, Matrix secondMatrix) throws IncompatibleDimensionsException {
+        if (firstMatrix.getM() != secondMatrix.getM()) {
+            throw new IncompatibleDimensionsException("Count of columns are not equal");
+        }
+        if (firstMatrix.getN() != secondMatrix.getN()) {
+            throw new IncompatibleDimensionsException("Count of rows are not equal");
         }
         int n = firstMatrix.getN();
         int m = firstMatrix.getM();
@@ -28,9 +32,9 @@ public class Matrices {
         return resultMatrix;
     }
 
-    static Matrix multiplyMatrixAndMatrix(Matrix firstMatrix, Matrix secondMatrix) {
+    static Matrix multiplyMatrixAndMatrix(Matrix firstMatrix, Matrix secondMatrix) throws IncompatibleDimensionsException {
         if (firstMatrix.getM() != secondMatrix.getN()) {
-            return null;
+            throw new IncompatibleDimensionsException("Count of columns of first matrix not equal with count of rows of second matrix");
         }
         int n = firstMatrix.getN();
         int m = secondMatrix.getM();

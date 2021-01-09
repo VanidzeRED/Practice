@@ -39,13 +39,12 @@ public class MatricesTest {
     }
 
     @Test
-    public void testSumMatrices() {
+    public void testSumMatrices() throws IncompatibleDimensionsException {
         MatricesTest.fillMatrices();
         Matrix result1 = Matrices.sumMatrices(firstMatrix, secondMatrix);
-        Matrix result2 = Matrices.sumMatrices(firstMatrix, thirdMatrix);
-        Matrix result3 = Matrices.sumMatrices(fourthMatrix, secondMatrix);
-        assertNull(result2);
-        assertNull(result3);
+        assertThrows(IncompatibleDimensionsException.class, () -> Matrices.sumMatrices(firstMatrix, thirdMatrix));
+        assertThrows(IncompatibleDimensionsException.class, () -> Matrices.sumMatrices(fourthMatrix, secondMatrix));
+
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 assertEquals(result1.getAt(i, j), 3.);
@@ -73,11 +72,11 @@ public class MatricesTest {
     }
 
     @Test
-    public void testMultiplyMatrixAndMatrix() {
+    public void testMultiplyMatrixAndMatrix() throws IncompatibleDimensionsException {
         MatricesTest.fillMatrices();
         Matrix result1 = Matrices.multiplyMatrixAndMatrix(firstMatrix, secondMatrix);
         Matrix result2 = Matrices.multiplyMatrixAndMatrix(firstMatrix, fourthMatrix);
-        assertNull(Matrices.multiplyMatrixAndMatrix(firstMatrix, thirdMatrix));
+        assertThrows(IncompatibleDimensionsException.class, () -> Matrices.multiplyMatrixAndMatrix(firstMatrix, thirdMatrix));
         assertEquals(result1.getN(), 2);
         assertEquals(result1.getM(), 2);
         assertEquals(result2.getN(), 2);
@@ -95,7 +94,7 @@ public class MatricesTest {
     }
 
     @Test
-    public void testFindGeterminate() {
+    public void testFindDeterminate() {
         MatricesTest.fillMatrices();
         assertEquals(Matrices.findDeterminate(firstMatrix), 0.);
         assertEquals(Matrices.findDeterminate(secondMatrix), 0.);
