@@ -18,7 +18,7 @@ public class ExceptionsTask {
         return array[m].charAt(n);
     }
 
-    public int division(String firstNum, String secondNum){
+    public int division(String firstNum, String secondNum) {
         return Integer.parseInt(firstNum) / Integer.parseInt(secondNum);
     }
 }

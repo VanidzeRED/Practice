@@ -42,4 +42,14 @@ public class ExceptionsTaskTest {
         assertThrows(NumberFormatException.class, () -> exceptionsTask.division("1", "0.5"));
         assertThrows(ArithmeticException.class, () -> exceptionsTask.division("1", "0"));
     }
+
+    @Test
+    public void cloneTest() throws CloneNotSupportedException {
+        CloneClass cloneClass = new CloneClass();
+        CloneClassWithInterfaceRealisation cloneClassWithInterfaceRealisation = new CloneClassWithInterfaceRealisation();
+        assertThrows(CloneNotSupportedException.class, cloneClass::clone);
+        // Throws exception due to not realises interface
+        Object object = cloneClassWithInterfaceRealisation.clone();
+        // Not throws exception due to realises interface
+    }
 }
