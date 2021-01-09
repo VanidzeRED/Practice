@@ -1,5 +1,8 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import ru.ssau.tk.pomelnikov.newtestproject.Exceptions.CheckableException;
+import ru.ssau.tk.pomelnikov.newtestproject.Exceptions.UncheckableException;
+
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
@@ -29,5 +32,17 @@ public class ExceptionsTask {
     public void serialize(OutputStream outputStream, Object object) throws IOException {
         ObjectOutputStream out = new ObjectOutputStream(outputStream);
         out.writeObject(object);
+    }
+
+    public void throwCheckableException() throws CheckableException {
+        throw new CheckableException();
+    }
+
+    public void catchCheckableException() throws UncheckableException {
+        try {
+            throwCheckableException();
+        } catch (CheckableException e) {
+            throw new UncheckableException(e);
+        }
     }
 }

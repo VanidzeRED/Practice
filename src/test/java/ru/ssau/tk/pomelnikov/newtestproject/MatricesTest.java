@@ -3,6 +3,7 @@ package ru.ssau.tk.pomelnikov.newtestproject;
 import static org.testng.Assert.*;
 
 import org.testng.annotations.Test;
+import ru.ssau.tk.pomelnikov.newtestproject.Exceptions.IncompatibleDimensionsException;
 
 public class MatricesTest {
 

@@ -1,6 +1,8 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
 import org.testng.annotations.Test;
+import ru.ssau.tk.pomelnikov.newtestproject.Exceptions.CheckableException;
+import ru.ssau.tk.pomelnikov.newtestproject.Exceptions.UncheckableException;
 
 import java.io.*;
 
@@ -62,5 +64,14 @@ public class ExceptionsTaskTest {
         assertThrows(NotSerializableException.class, () -> exceptionsTask.serialize(new ByteArrayOutputStream(), new NamedPoint()));
         assertThrows(NotSerializableException.class, () -> exceptionsTask.serialize(new ByteArrayOutputStream(), new Object()));
         assertThrows(FileNotFoundException.class, () -> exceptionsTask.serialize(new FileOutputStream(""), new Person()));
+    }
+
+    @Test
+    public void testCatchCheckableException() {
+        try {
+            exceptionsTask.catchCheckableException();
+        } catch (UncheckableException e) {
+            assertEquals(e.getCause().getClass(), CheckableException.class);
+        }
     }
 }

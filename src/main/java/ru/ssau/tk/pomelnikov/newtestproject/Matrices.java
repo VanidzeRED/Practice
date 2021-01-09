@@ -1,5 +1,7 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import ru.ssau.tk.pomelnikov.newtestproject.Exceptions.IncompatibleDimensionsException;
+
 public class Matrices {
 
     static Matrix sumMatrices(Matrix firstMatrix, Matrix secondMatrix) throws IncompatibleDimensionsException {
