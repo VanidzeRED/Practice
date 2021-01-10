@@ -1,5 +1,7 @@
 package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 
+import java.util.Objects;
+
 public class Location {
 
     private int id;
@@ -37,5 +39,18 @@ public class Location {
 
     public double getLongitude() {
         return longitude;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Location location = (Location) object;
+        return id == location.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
