@@ -26,6 +26,17 @@ public class Route implements Iterable<Location>{
         this.locations.remove(index);
     }
 
+    public void removeLocation(Location location) {
+        int flag = 0;
+        for (Location currentLocation : this.locations) {
+            if (currentLocation.equals(location)) {
+                removeLocation(flag);
+                return;
+            }
+            flag++;
+        }
+    }
+
     public Location getFirstLocation() {
         return locations.get(0);
     }
