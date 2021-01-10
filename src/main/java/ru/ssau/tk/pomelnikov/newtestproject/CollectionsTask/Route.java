@@ -1,14 +1,13 @@
 package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Route {
 
     private List<Location> locations;
 
     public Route() {
-        locations = Collections.emptyList();
+        this.locations = new ArrayList<>(Collections.emptyList());
     }
 
     public List<Location> getLocations() {
@@ -16,14 +15,14 @@ public class Route {
     }
 
     public void addLocation(Location location) {
-        locations.add(location);
+        this.locations.add(location);
     }
 
     public void addLocation(int index, Location location) {
-        locations.add(index, location);
+        this.locations.add(index, location);
     }
 
     public void removeLocation(int index) {
-        locations.remove(index);
+        this.locations.remove(index);
     }
 }
