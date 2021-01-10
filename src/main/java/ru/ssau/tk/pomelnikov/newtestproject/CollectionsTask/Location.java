@@ -7,11 +7,11 @@ public class Location {
     private double latitude;
     private double longitude;
 
-    public void setId (int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setName (String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
