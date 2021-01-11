@@ -17,7 +17,7 @@ public class RouteTest {
     Waypoint warehouse = new Waypoint();
     Route testRoute;
 
-    private void fillRoute(){
+    private void fillRoute() {
         testRoute.addLocation(village);
         testRoute.addLocation(city);
     }
@@ -153,9 +153,9 @@ public class RouteTest {
         testRoute.addLocation(depot);
         assertEquals(testRoute.toString(),
                 "Settlement. Type: VILLAGE; name: village; latitude: 54.3; longitude: 44.2\n" +
-                "Settlement. Type: CITY; name: city; latitude: 54.6; longitude: 45.7\n" +
-                "Waypoint. Type: WAREHOUSE; name: warehouse; latitude: 54.2; longitude: 46.2\n" +
-                "Waypoint. Type: DEPOT; name: depot; latitude: 54.1; longitude: 45.6\n");
+                        "Settlement. Type: CITY; name: city; latitude: 54.6; longitude: 45.7\n" +
+                        "Waypoint. Type: WAREHOUSE; name: warehouse; latitude: 54.2; longitude: 46.2\n" +
+                        "Waypoint. Type: DEPOT; name: depot; latitude: 54.1; longitude: 45.6\n");
     }
 
     @Test
@@ -170,7 +170,7 @@ public class RouteTest {
         testRoute.addLocation(depot);
         testRoute.addLocation(warehouse);
         int count = 0;
-        for (Location location : testRoute){
+        for (Location location : testRoute) {
             assertEquals(location.getId(), count);
             count++;
         }
