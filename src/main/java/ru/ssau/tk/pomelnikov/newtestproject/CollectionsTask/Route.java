@@ -6,6 +6,7 @@ import java.lang.Math;
 public final class Route implements Iterable<Location>, Comparable<Route> {
 
     private final List<Location> locations;
+    private final RouteLengthComparator routeLengthComparator = new RouteLengthComparator();
 
     public Route() {
         this.locations = new ArrayList<>();
@@ -49,11 +50,11 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
     public double length() {
         double length = 0;
         for (int i = 1; i < locations.size(); i++) {
-            double x1 = locations.get(i-1).getLatitude();
-            double y1 = locations.get(i-1).getLongitude();
+            double x1 = locations.get(i - 1).getLatitude();
+            double y1 = locations.get(i - 1).getLongitude();
             double x2 = locations.get(i).getLatitude();
             double y2 = locations.get(i).getLongitude();
-            length += Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2));
+            length += Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         }
         return length;
     }
@@ -120,6 +121,6 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
 
     @Override
     public int compareTo(Route anotherRoute) {
-        return Double.compare(this.length(), anotherRoute.length());
+        return routeLengthComparator.compare(this, anotherRoute);
     }
 }

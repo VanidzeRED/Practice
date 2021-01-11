@@ -25,7 +25,7 @@ public class CompanyModelTest {
     Driver eve = new Driver();
     Driver charlie = new Driver();
     Driver chuck = new Driver();
-    Driver carol= new Driver();
+    Driver carol = new Driver();
     Route route1 = new Route();
     Route route2 = new Route();
     Route route3 = new Route();
@@ -134,22 +134,22 @@ public class CompanyModelTest {
         Collection<Route> routesTwo = companyModelTwo.getAllRoutes();
         int i = 1;
         for (Route route : routesOne) {
-            if (i == 1){
+            if (i == 1) {
                 assertEquals(route.toString(), route1.toString());
             }
-            if (i == 2){
+            if (i == 2) {
                 assertEquals(route.toString(), route2.toString());
             }
-            if (i == 3){
+            if (i == 3) {
                 assertEquals(route.toString(), route3.toString());
             }
             i++;
         }
         for (Route route : routesTwo) {
-            if (i == 4){
+            if (i == 4) {
                 assertEquals(route.toString(), route4.toString());
             }
-            if (i == 5){
+            if (i == 5) {
                 assertEquals(route.toString(), route5.toString());
             }
             i++;
@@ -206,6 +206,8 @@ public class CompanyModelTest {
     public void testRouteComparator() {
         fillModels();
         List<Route> routes = new ArrayList<>(Arrays.asList(route1, route2, route3, route4, route5));
+        assertEquals(Collections.min(routes), route3);
+        assertEquals(Collections.max(routes), route4);
         Collections.sort(routes);
         assertEquals(routes, new ArrayList<>(Arrays.asList(route3, route2, route5, route1, route4)));
     }
