@@ -20,4 +20,9 @@ public class Waypoint extends Location {
     public Settlement getSettlement() {
         return settlement;
     }
+
+    @Override
+    public String toString() {
+        return "Waypoint. Type: " + type + "; name: " + getName() + "; latitude: " + getLatitude() + "; longitude: " + getLongitude();
+    }
 }

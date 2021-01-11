@@ -20,4 +20,9 @@ public class Settlement extends Location {
     public SettlementType getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Settlement. Type: " + type + "; name: " + getName() + "; latitude: " + getLatitude() + "; longitude: " + getLongitude();
+    }
 }

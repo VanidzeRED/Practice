@@ -2,9 +2,9 @@ package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 
 import java.util.*;
 
-public class Route implements Iterable<Location> {
+public final class Route implements Iterable<Location> {
 
-    private List<Location> locations;
+    private final List<Location> locations;
 
     public Route() {
         this.locations = new ArrayList<>(Collections.emptyList());
