@@ -3,7 +3,7 @@ package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 import java.util.*;
 import java.lang.Math;
 
-public final class Route implements Iterable<Location> {
+public final class Route implements Iterable<Location>, Comparable<Route> {
 
     private final List<Location> locations;
 
@@ -116,5 +116,10 @@ public final class Route implements Iterable<Location> {
                 }
             }
         };
+    }
+
+    @Override
+    public int compareTo(Route anotherRoute) {
+        return Double.compare(this.length(), anotherRoute.length());
     }
 }
