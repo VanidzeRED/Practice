@@ -66,6 +66,23 @@ public final class Route implements Iterable<Location> {
     }
 
     @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Location location : locations) {
+            if (location.getClass() == Settlement.class) {
+                Settlement settlement = (Settlement) location;
+                stringBuilder.append(settlement.toString());
+            }
+            if (location.getClass() == Waypoint.class) {
+                Waypoint waypoint = (Waypoint) location;
+                stringBuilder.append(waypoint.toString());
+            }
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
+    }
+
+    @Override
     public Iterator<Location> iterator() {
         return new Iterator<>() {
             private Location location = getFirstLocation();
