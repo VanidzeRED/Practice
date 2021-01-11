@@ -2,7 +2,7 @@ package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 
 import java.util.Objects;
 
-public class Location implements Comparable<Location>{
+public class Location implements Comparable<Location> {
 
     private int id;
     private String name;
