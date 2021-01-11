@@ -82,6 +82,27 @@ public class RouteTest {
     }
 
     @Test
+    public void testLength() {
+        testRoute = new Route();
+        village.setLatitude(55.4);
+        city.setLatitude(60.8);
+        depot.setLatitude(75.2);
+        warehouse.setLatitude(96.4);
+        village.setLongitude(10.5);
+        city.setLongitude(40.7);
+        depot.setLongitude(12.6);
+        warehouse.setLongitude(6.9);
+        testRoute.addLocation(city);
+        testRoute.addLocation(village);
+        testRoute.addLocation(depot);
+        testRoute.addLocation(warehouse);
+        assertEquals(testRoute.length(), 72.5, 0.1);
+        testRoute.addLocation(city);
+        testRoute.removeLocation(2);
+        assertEquals(testRoute.length(), 120.9, 0.1);
+    }
+
+    @Test
     public void testEquals() {
         testRoute = new Route();
         Route equalRoute = new Route();
