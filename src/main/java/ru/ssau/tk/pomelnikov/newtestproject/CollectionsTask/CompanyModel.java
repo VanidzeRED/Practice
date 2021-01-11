@@ -86,7 +86,7 @@ public class CompanyModel {
         Collections.sort(settlements, comparator);
     }
 
-    public static void sortByName(List<Location>locations) {
+    public static void sortByName(List<? extends Location>locations) {
         Collections.sort(locations, ((o1, o2) -> CharSequence.compare(o1.getName(), o2.getName())));
     }
 }

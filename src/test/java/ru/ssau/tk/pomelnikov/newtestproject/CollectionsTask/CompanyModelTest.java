@@ -250,5 +250,8 @@ public class CompanyModelTest {
         CompanyModel.sortByName(locations);
         assertEquals(locations, new ArrayList<>(Arrays.asList(city1, city1Depot, city2, city2Warehouse,
                 loneDepot, village1, village1Warehouse, village2,  village2Waypoint)));
+        List<Settlement> settlements = new ArrayList<>(Arrays.asList(city1, village2, city2, village1));
+        CompanyModel.sortByName(settlements);
+        assertEquals(settlements, new ArrayList<>(Arrays.asList(city1, city2, village1, village2)));
     }
 }
