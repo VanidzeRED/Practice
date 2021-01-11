@@ -3,10 +3,7 @@ package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 import org.testng.annotations.Test;
 import ru.ssau.tk.pomelnikov.newtestproject.Gender;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 import static org.testng.Assert.*;
 
@@ -77,13 +74,38 @@ public class CompanyModelTest {
 
     @Test
     public void testGetAllLocations() {
+        fillModels();
+        Collection<Location> locationsOne = companyModelOne.getAllLocations();
+        Collection<Location> locationsTwo = companyModelTwo.getAllLocations();
+        for (Location location : locationsOne) {
+            System.out.println(location.toString());
+        }
+        System.out.println("\n------------------\n");
+        for (Location location : locationsTwo) {
+            System.out.println(location.toString());
+        }
     }
 
     @Test
     public void testGetAllRoutes() {
+        fillModels();
+        Collection<Route> routesOne = companyModelOne.getAllRoutes();
+        Collection<Route> routesTwo = companyModelTwo.getAllRoutes();
+        for (Route route : routesOne) {
+            System.out.println(route.toString());
+        }
+        System.out.println("------------------\n");
+        for (Route route : routesTwo) {
+            System.out.println(route.toString());
+        }
     }
 
     @Test
     public void testGetAllDrivers() {
+        fillModels();
+        Collection<Driver> drivers = companyModelOne.getAllDrivers();       //Водители для обеих компаний одинаковы,
+        for (Driver driver : drivers) {                                     //  поэтому тестирую только одну
+            System.out.println(driver.toString());
+        }
     }
 }
