@@ -211,4 +211,16 @@ public class CompanyModelTest {
         Collections.sort(routes);
         assertEquals(routes, new ArrayList<>(Arrays.asList(route3, route2, route5, route1, route4)));
     }
+
+    @Test
+    public void testLocationComparator() {
+        fillModels();
+        List<Location> locations = new ArrayList<>(Arrays.asList(village1, village2, city1, city2, village1Warehouse,
+                village2Waypoint, city1Depot, city2Warehouse, loneDepot));
+        assertEquals(Collections.max(locations), city2);
+        assertEquals(Collections.min(locations), village1);
+        Collections.sort(locations);
+        assertEquals(locations, new ArrayList<>(Arrays.asList(village1, village1Warehouse, village2Waypoint, village2,
+                city1, city1Depot, loneDepot, city2, city2Warehouse)));
+    }
 }
