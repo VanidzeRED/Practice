@@ -9,12 +9,14 @@ public class CompanyModel {
     private final Collection<Location> allLocations;
     private final Collection<Route> allRoutes;
     private final Collection<Driver> allDrivers;
+    private final Map<Driver, Route> driverRouteMap;
     private int maxId = 0;
 
     public CompanyModel() {
         allLocations = new LinkedHashSet<>();
         allRoutes = new LinkedHashSet<>();
         allDrivers = new LinkedHashSet<>();
+        driverRouteMap = new LinkedHashMap<>();
     }
 
     public Collection<Location> getAllLocations() {
@@ -27,6 +29,10 @@ public class CompanyModel {
 
     public Collection<Driver> getAllDrivers() {
         return allDrivers;
+    }
+
+    public Map<Driver, Route> getDriverRouteMap() {
+        return driverRouteMap;
     }
 
     public Settlement addSettlement(String name, double latitude, double longitude, SettlementType type, int population) {
@@ -70,5 +76,9 @@ public class CompanyModel {
         }
         allRoutes.add(route);
         return route;
+    }
+
+    public void assignRoute(Driver driver, Route route) {
+        driverRouteMap.put(driver, route);
     }
 }
