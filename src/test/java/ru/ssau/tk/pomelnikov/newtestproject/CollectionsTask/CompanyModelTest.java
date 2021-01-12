@@ -310,7 +310,21 @@ public class CompanyModelTest {
         fillModels(companyModelOne, companyModelTwo);
         Map<Driver, Route> driverRouteMap = companyModelOne.driversOnRoute();
         Collection<Driver> drivers = driverRouteMap.keySet();
+        Collection<Route> routes = driverRouteMap.values();
         assertEquals(drivers, new ArrayList<>(Arrays.asList(alice, bob, charlie, dave)));   //Eve is not on route
+        assertEquals(routes, new ArrayList<>(Arrays.asList(route2, route1, route3, route2)));
+    }
 
+    @Test
+    public void testSettlementTypeMap() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        Map<Settlement, SettlementType> settlementTypeMap = companyModelOne.settlementTypeMap();
+        Collection<Settlement> settlements = settlementTypeMap.keySet();
+        Collection<SettlementType> settlementTypes = settlementTypeMap.values();
+        assertEquals(settlements, new ArrayList<>(Arrays.asList(city1, city2, village1, village2)));
+        assertEquals(settlementTypes, new ArrayList<>(Arrays.asList(SettlementType.CITY, SettlementType.CITY,
+                SettlementType.VILLAGE, SettlementType.VILLAGE)));
     }
 }

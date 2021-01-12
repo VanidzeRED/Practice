@@ -91,7 +91,7 @@ public class CompanyModel {
         Collections.sort(locations, ((o1, o2) -> CharSequence.compare(o1.getName(), o2.getName())));
     }
 
-    public Map<Driver,Route> driversOnRoute() {
+    public Map<Driver, Route> driversOnRoute() {
         Map<Driver, Route> returnableDriverRouteMap = new LinkedHashMap<>();
         List<Driver> drivers = new ArrayList<>(this.driverRouteMap.keySet());
         drivers.sort((o1, o2) -> CharSequence.compare(o1.getName(), o2.getName()));
@@ -99,5 +99,24 @@ public class CompanyModel {
             returnableDriverRouteMap.put(driver, this.driverRouteMap.get(driver));
         }
         return returnableDriverRouteMap;
+    }
+
+    public Map<Settlement, SettlementType> settlementTypeMap() {
+        Map<Settlement, SettlementType> settlementTypeMap = new LinkedHashMap<>();
+        List<Settlement> settlementList = new ArrayList<>();
+        for (Location location : this.allLocations) {
+            if (location.getClass() == Settlement.class) {
+                settlementList.add((Settlement) location);
+            }
+        }
+        settlementList.sort(((o1, o2) -> Integer.compare(-o1.getSettlement(), -o2.getSettlement())));
+        for (Settlement settlement : settlementList) {
+            if (settlement.getType() == SettlementType.CITY) {
+                settlementTypeMap.put(settlement, SettlementType.CITY);
+            } else {
+                settlementTypeMap.put(settlement, SettlementType.VILLAGE);
+            }
+        }
+        return settlementTypeMap;
     }
 }
