@@ -302,4 +302,15 @@ public class CompanyModelTest {
         assertEquals(locations, new ArrayList<>(Arrays.asList(city1, city2, village1, village2, city1Depot,
                 loneDepot, city2Warehouse, village1Warehouse, village2Waypoint)));
     }
+
+    @Test
+    public void testDriversOnRoute() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        Map<Driver, Route> driverRouteMap = companyModelOne.driversOnRoute();
+        Collection<Driver> drivers = driverRouteMap.keySet();
+        assertEquals(drivers, new ArrayList<>(Arrays.asList(alice, bob, charlie, dave)));   //Eve is not on route
+
+    }
 }

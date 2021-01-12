@@ -90,4 +90,14 @@ public class CompanyModel {
     public static void sortByName(List<? extends Location> locations) {
         Collections.sort(locations, ((o1, o2) -> CharSequence.compare(o1.getName(), o2.getName())));
     }
+
+    public Map<Driver,Route> driversOnRoute() {
+        Map<Driver, Route> returnableDriverRouteMap = new LinkedHashMap<>();
+        List<Driver> drivers = new ArrayList<>(this.driverRouteMap.keySet());
+        drivers.sort((o1, o2) -> CharSequence.compare(o1.getName(), o2.getName()));
+        for (Driver driver : drivers) {
+            returnableDriverRouteMap.put(driver, this.driverRouteMap.get(driver));
+        }
+        return returnableDriverRouteMap;
+    }
 }
