@@ -6,6 +6,7 @@ import java.util.*;
 
 public class CompanyModel {
 
+    private static final CountOfDriversComparator routesComparator = new CountOfDriversComparator();
     private final Collection<Location> allLocations;
     private final Collection<Route> allRoutes;
     private final Collection<Driver> allDrivers;
@@ -86,7 +87,7 @@ public class CompanyModel {
         Collections.sort(settlements, comparator);
     }
 
-    public static void sortByName(List<? extends Location>locations) {
+    public static void sortByName(List<? extends Location> locations) {
         Collections.sort(locations, ((o1, o2) -> CharSequence.compare(o1.getName(), o2.getName())));
     }
 }

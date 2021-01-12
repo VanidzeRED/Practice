@@ -99,7 +99,6 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
     @Override
     public Iterator<Location> iterator() {
         return new Iterator<>() {
-            private Location location = getFirstLocation();
             private int count = 0;
 
             @Override
@@ -110,8 +109,7 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
             @Override
             public Location next() {
                 if (hasNext()) {
-                    location = locations.get(count++);
-                    return location;
+                    return locations.get(count++);
                 } else {
                     throw new NoSuchElementException();
                 }

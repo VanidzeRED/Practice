@@ -9,8 +9,6 @@ import static org.testng.Assert.*;
 
 public class CompanyModelTest {
 
-    CompanyModel companyModelOne = new CompanyModel();
-    CompanyModel companyModelTwo = new CompanyModel();
     Settlement village1 = new Settlement();
     Settlement village2 = new Settlement();
     Settlement city1 = new Settlement();
@@ -26,13 +24,15 @@ public class CompanyModelTest {
     Driver charlie = new Driver();
     Driver chuck = new Driver();
     Driver carol = new Driver();
+    Driver dave = new Driver();
     Route route1 = new Route();
     Route route2 = new Route();
     Route route3 = new Route();
     Route route4 = new Route();
     Route route5 = new Route();
+    Route route6 = new Route();
 
-    private void fillModels() {
+    private void fillModels(CompanyModel companyModelOne, CompanyModel companyModelTwo) {
         village1 = companyModelOne.addSettlement("village1", 20.36, 45.12, SettlementType.VILLAGE, 1200);
         village2 = companyModelOne.addSettlement("village2", 20.45, 45.81, SettlementType.VILLAGE, 540);
         city1 = companyModelOne.addSettlement("city1", 20.47, 46.01, SettlementType.CITY, 1250000);
@@ -46,12 +46,15 @@ public class CompanyModelTest {
         alice = companyModelOne.addDriver("Alice", Gender.FEMALE, new Date(127, Calendar.DECEMBER, 5));
         eve = companyModelOne.addDriver("Eve", Gender.FEMALE, new Date(135, Calendar.AUGUST, 16));
         charlie = companyModelOne.addDriver("Charlie", Gender.MALE, new Date(140, Calendar.JANUARY, 2));
+        dave = companyModelOne.addDriver("Dave", Gender.MALE, new Date(129, Calendar.FEBRUARY, 28));
         route1 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, village2Waypoint, village1Warehouse, city2Warehouse, loneDepot)));
         route2 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, city2, city2Warehouse, loneDepot)));
         route3 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(loneDepot, village2, village2Waypoint, village1Warehouse, city1, city1Depot)));
+        route6 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(loneDepot, village1, village1Warehouse, city2, city2Warehouse, city1, city1Depot)));
         companyModelOne.assignRoute(bob, route1);
         companyModelOne.assignRoute(alice, route2);
         companyModelOne.assignRoute(charlie, route3);
+        companyModelOne.assignRoute(dave, route2);
 
         companyModelTwo.addSettlement("village1", 20.36, 45.12, SettlementType.VILLAGE, 1200);
         companyModelTwo.addSettlement("village2", 20.45, 45.81, SettlementType.VILLAGE, 540);
@@ -69,7 +72,9 @@ public class CompanyModelTest {
 
     @Test
     public void testGetAllLocations() {
-        fillModels();
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
         Collection<Location> locationsOne = companyModelOne.getAllLocations();
         Collection<Location> locationsTwo = companyModelTwo.getAllLocations();
         int i = 1;
@@ -129,7 +134,9 @@ public class CompanyModelTest {
 
     @Test
     public void testGetAllRoutes() {
-        fillModels();
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
         Collection<Route> routesOne = companyModelOne.getAllRoutes();
         Collection<Route> routesTwo = companyModelTwo.getAllRoutes();
         int i = 1;
@@ -143,13 +150,16 @@ public class CompanyModelTest {
             if (i == 3) {
                 assertEquals(route.toString(), route3.toString());
             }
+            if (i == 4) {
+                assertEquals(route.toString(), route6.toString());
+            }
             i++;
         }
         for (Route route : routesTwo) {
-            if (i == 4) {
+            if (i == 5) {
                 assertEquals(route.toString(), route4.toString());
             }
-            if (i == 5) {
+            if (i == 6) {
                 assertEquals(route.toString(), route5.toString());
             }
             i++;
@@ -158,7 +168,9 @@ public class CompanyModelTest {
 
     @Test
     public void testGetAllDrivers() {
-        //fillModels();
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
         Collection<Driver> driversOne = companyModelOne.getAllDrivers();
         Collection<Driver> driversTwo = companyModelTwo.getAllDrivers();
         int i = 1;
@@ -175,13 +187,16 @@ public class CompanyModelTest {
             if (i == 4) {
                 assertEquals(driver.toString(), charlie.toString());
             }
+            if (i == 5) {
+                assertEquals(driver.toString(), dave.toString());
+            }
             i++;
         }
         for (Driver driver : driversTwo) {
-            if (i == 5) {
+            if (i == 6) {
                 assertEquals(driver.toString(), chuck.toString());
             }
-            if (i == 6) {
+            if (i == 7) {
                 assertEquals(driver.toString(), carol.toString());
             }
             i++;
@@ -190,31 +205,38 @@ public class CompanyModelTest {
 
     @Test
     public void testAssignRoute() {
-        fillModels();
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
         Map<Driver, Route> mapOne = companyModelOne.getDriverRouteMap();
         Map<Driver, Route> mapTwo = companyModelTwo.getDriverRouteMap();
-        assertEquals(mapOne.size(), 3);
+        assertEquals(mapOne.size(), 4);
         assertEquals(mapTwo.size(), 2);
         assertEquals(mapOne.get(bob), route1);
         assertEquals(mapOne.get(alice), route2);
         assertEquals(mapOne.get(charlie), route3);
         assertEquals(mapTwo.get(chuck), route4);
         assertEquals(mapTwo.get(carol), route5);
+        assertEquals(mapOne.get(dave), route2);
     }
 
     @Test
     public void testRouteComparator() {
-        fillModels();
-        List<Route> routes = new ArrayList<>(Arrays.asList(route1, route2, route3, route4, route5));
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        List<Route> routes = new ArrayList<>(Arrays.asList(route1, route2, route3, route4, route5, route6));
         assertEquals(Collections.min(routes), route3);
         assertEquals(Collections.max(routes), route4);
         Collections.sort(routes);
-        assertEquals(routes, new ArrayList<>(Arrays.asList(route3, route2, route5, route1, route4)));
+        assertEquals(routes, new ArrayList<>(Arrays.asList(route3, route2, route5, route6, route1, route4)));
     }
 
     @Test
     public void testLocationComparator() {
-        fillModels();
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
         List<Location> locations = new ArrayList<>(Arrays.asList(village1, village2, city1, city2, village1Warehouse,
                 village2Waypoint, city1Depot, city2Warehouse, loneDepot));
         assertEquals(Collections.max(locations), city2);
@@ -226,7 +248,9 @@ public class CompanyModelTest {
 
     @Test
     public void testSort() {
-        fillModels();
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
         List<Settlement> settlements = new ArrayList<>(Arrays.asList(city1, village2, city2, village1));
         CompanyModel.sort(settlements, (o1, o2) -> Integer.compare(o1.getId(), o2.getId()));
         assertEquals(settlements, new ArrayList<>(Arrays.asList(village1, village2, city1, city2)));
@@ -244,14 +268,26 @@ public class CompanyModelTest {
 
     @Test
     public void testSortByName() {
-        fillModels();
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
         List<Location> locations = new ArrayList<>(Arrays.asList(loneDepot, village2, village1, city1Depot,
                 city2Warehouse, city2, city1, village1Warehouse, village2Waypoint));
         CompanyModel.sortByName(locations);
         assertEquals(locations, new ArrayList<>(Arrays.asList(city1, city1Depot, city2, city2Warehouse,
-                loneDepot, village1, village1Warehouse, village2,  village2Waypoint)));
+                loneDepot, village1, village1Warehouse, village2, village2Waypoint)));
         List<Settlement> settlements = new ArrayList<>(Arrays.asList(city1, village2, city2, village1));
         CompanyModel.sortByName(settlements);
         assertEquals(settlements, new ArrayList<>(Arrays.asList(city1, city2, village1, village2)));
+    }
+
+    @Test
+    public void testDriversComparator() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        List<Driver> drivers = new ArrayList<>(Arrays.asList(bob, alice, charlie, chuck, eve, dave, carol));
+        Collections.sort(drivers, new DriversComparator());
+        assertEquals(drivers, new ArrayList<>(Arrays.asList(alice, carol, eve, bob, chuck, dave, charlie)));
     }
 }
