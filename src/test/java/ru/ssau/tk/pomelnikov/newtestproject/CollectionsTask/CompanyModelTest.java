@@ -290,4 +290,16 @@ public class CompanyModelTest {
         Collections.sort(drivers, new DriversComparator());
         assertEquals(drivers, new ArrayList<>(Arrays.asList(alice, carol, eve, bob, chuck, dave, charlie)));
     }
+
+    @Test
+    public void testLocationsComparator() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        List<Location> locations = new ArrayList<>(Arrays.asList(village1, village1Warehouse, village2, village2Waypoint,
+                city1, city1Depot, city2, city2Warehouse, loneDepot));
+        Collections.sort(locations, new LocationsComparator());
+        assertEquals(locations, new ArrayList<>(Arrays.asList(city1, city2, village1, village2, city1Depot,
+                loneDepot, city2Warehouse, village1Warehouse, village2Waypoint)));
+    }
 }
