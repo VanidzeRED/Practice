@@ -18,6 +18,8 @@ public class CompanyModelTest {
     Waypoint city1Depot = new Waypoint();
     Waypoint city2Warehouse = new Waypoint();
     Waypoint loneDepot = new Waypoint();
+    Waypoint city1DepotCompanyTwo = new Waypoint();
+    Waypoint loneDepotCompanyTwo = new Waypoint();
     Driver bob = new Driver();
     Driver alice = new Driver();
     Driver eve = new Driver();
@@ -33,38 +35,57 @@ public class CompanyModelTest {
     Route route6 = new Route();
 
     private void fillModels(CompanyModel companyModelOne, CompanyModel companyModelTwo) {
-        village1 = companyModelOne.addSettlement("village1", 20.36, 45.12, SettlementType.VILLAGE, 1200);
-        village2 = companyModelOne.addSettlement("village2", 20.45, 45.81, SettlementType.VILLAGE, 540);
-        city1 = companyModelOne.addSettlement("city1", 20.47, 46.01, SettlementType.CITY, 1250000);
-        city2 = companyModelOne.addSettlement("city2", 21.87, 45.84, SettlementType.CITY, 384000);
-        village1Warehouse = companyModelOne.addWaypoint("village1.Warehouse", 20.36, 45.12, WaypointType.WAREHOUSE, village1);
-        village2Waypoint = companyModelOne.addWaypoint("village2.Waypoint", 20.36, 45.12, WaypointType.EMPTY, village2);
-        city1Depot = companyModelOne.addWaypoint("city1.Depot", 20.47, 46.01, WaypointType.DEPOT, city1);
-        loneDepot = companyModelOne.addWaypoint("lone Depot", 20.54, 45.85, WaypointType.DEPOT, null);
-        city2Warehouse = companyModelOne.addWaypoint("city2.Warehouse", 21.87, 45.84, WaypointType.WAREHOUSE, city2);
+        village1 = companyModelOne.addSettlement("village1", 20.36, 45.12,
+                SettlementType.VILLAGE, 1200);
+        village2 = companyModelOne.addSettlement("village2", 20.45, 45.81,
+                SettlementType.VILLAGE, 540);
+        city1 = companyModelOne.addSettlement("city1", 20.47, 46.01, SettlementType.CITY,
+                1250000);
+        city2 = companyModelOne.addSettlement("city2", 21.87, 45.84, SettlementType.CITY,
+                384000);
+        village1Warehouse = companyModelOne.addWaypoint("village1.Warehouse", 20.36, 45.12,
+                WaypointType.WAREHOUSE, village1);
+        village2Waypoint = companyModelOne.addWaypoint("village2.Waypoint", 20.36, 45.12,
+                WaypointType.EMPTY, village2);
+        city1Depot = companyModelOne.addWaypoint("city1.Depot", 20.47, 46.01,
+                WaypointType.DEPOT, city1);
+        loneDepot = companyModelOne.addWaypoint("lone Depot", 20.54, 45.85,
+                WaypointType.DEPOT, null);
+        city2Warehouse = companyModelOne.addWaypoint("city2.Warehouse", 21.87, 45.84,
+                WaypointType.WAREHOUSE, city2);
         bob = companyModelOne.addDriver("Bob", Gender.MALE, new Date(121, Calendar.APRIL, 21));
         alice = companyModelOne.addDriver("Alice", Gender.FEMALE, new Date(127, Calendar.DECEMBER, 5));
         eve = companyModelOne.addDriver("Eve", Gender.FEMALE, new Date(135, Calendar.AUGUST, 16));
         charlie = companyModelOne.addDriver("Charlie", Gender.MALE, new Date(140, Calendar.JANUARY, 2));
         dave = companyModelOne.addDriver("Dave", Gender.MALE, new Date(129, Calendar.FEBRUARY, 28));
-        route1 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, village2Waypoint, village1Warehouse, city2Warehouse, loneDepot)));
-        route2 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, city2, city2Warehouse, loneDepot)));
-        route3 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(loneDepot, village2, village2Waypoint, village1Warehouse, city1, city1Depot)));
-        route6 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(loneDepot, village1, village1Warehouse, city2, city2Warehouse, city1, city1Depot)));
+        route1 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, village2Waypoint,
+                village1Warehouse, city2Warehouse, loneDepot)));
+        route2 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, city2, city2Warehouse,
+                loneDepot)));
+        route3 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(loneDepot, village2, village2Waypoint,
+                village1Warehouse, city1, city1Depot)));
+        route6 = companyModelOne.addRoute(new ArrayList<>(Arrays.asList(loneDepot, village1, village1Warehouse,
+                city2, city2Warehouse, city1, city1Depot)));
         companyModelOne.assignRoute(bob, route1);
         companyModelOne.assignRoute(alice, route2);
         companyModelOne.assignRoute(charlie, route3);
         companyModelOne.assignRoute(dave, route2);
 
-        companyModelTwo.addSettlement("village1", 20.36, 45.12, SettlementType.VILLAGE, 1200);
-        companyModelTwo.addSettlement("village2", 20.45, 45.81, SettlementType.VILLAGE, 540);
-        companyModelTwo.addSettlement("city1", 20.47, 46.01, SettlementType.CITY, 1250000);
-        companyModelTwo.addSettlement("city2", 21.87, 45.84, SettlementType.CITY, 384000);
-        companyModelTwo.addWaypoint("city1.Depot", 20.47, 46.01, WaypointType.DEPOT, city1);
-        companyModelTwo.addWaypoint("lone Depot", 20.54, 45.85, WaypointType.DEPOT, null);
+        companyModelTwo.addSettlement("village1", 20.36, 45.12, SettlementType.VILLAGE,
+                1200);
+        companyModelTwo.addSettlement("village2", 20.45, 45.81, SettlementType.VILLAGE,
+                540);
+        companyModelTwo.addSettlement("city1", 20.47, 46.01, SettlementType.CITY,
+                1250000);
+        companyModelTwo.addSettlement("city2", 21.87, 45.84, SettlementType.CITY,
+                384000);
+        city1DepotCompanyTwo = companyModelTwo.addWaypoint("city1.Depot", 20.47, 46.01, WaypointType.DEPOT, city1);
+        loneDepotCompanyTwo = companyModelTwo.addWaypoint("lone Depot", 20.54, 45.85, WaypointType.DEPOT,
+                null);
         chuck = companyModelTwo.addDriver("Chuck", Gender.MALE, new Date(123, Calendar.MAY, 6));
         carol = companyModelTwo.addDriver("Carol", Gender.FEMALE, new Date(129, Calendar.OCTOBER, 28));
-        route4 = companyModelTwo.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, village1, village2, city2, loneDepot)));
+        route4 = companyModelTwo.addRoute(new ArrayList<>(Arrays.asList(city1Depot, city1, village1, village2,
+                city2, loneDepot)));
         route5 = companyModelTwo.addRoute(new ArrayList<>(Arrays.asList(loneDepot, village1, city2, city1, city1Depot)));
         companyModelTwo.assignRoute(chuck, route4);
         companyModelTwo.assignRoute(carol, route5);
@@ -316,15 +337,47 @@ public class CompanyModelTest {
     }
 
     @Test
-    public void testSettlementTypeMap() {
+    public void testGetSettlementsWithType() {
         CompanyModel companyModelOne = new CompanyModel();
         CompanyModel companyModelTwo = new CompanyModel();
         fillModels(companyModelOne, companyModelTwo);
-        Map<Settlement, SettlementType> settlementTypeMap = companyModelOne.settlementTypeMap();
+        Map<Settlement, SettlementType> settlementTypeMap = companyModelOne.getSettlementsWithType();
         Collection<Settlement> settlements = settlementTypeMap.keySet();
         Collection<SettlementType> settlementTypes = settlementTypeMap.values();
         assertEquals(settlements, new ArrayList<>(Arrays.asList(city1, city2, village1, village2)));
         assertEquals(settlementTypes, new ArrayList<>(Arrays.asList(SettlementType.CITY, SettlementType.CITY,
                 SettlementType.VILLAGE, SettlementType.VILLAGE)));
+    }
+
+    @Test
+    public void testGetTypesOfWaypoints() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        Map<WaypointType, List<Waypoint>> waypointTypeListMapOne = companyModelOne.getTypesOfWaypoints();
+        Map<WaypointType, List<Waypoint>> waypointTypeListMapTwo = companyModelTwo.getTypesOfWaypoints();
+        Collection<WaypointType> waypointTypeCollectionOne = waypointTypeListMapOne.keySet();
+        Collection<WaypointType> waypointTypeCollectionTwo = waypointTypeListMapTwo.keySet();
+        assertEquals(waypointTypeCollectionOne, new ArrayList<>(Arrays.asList(WaypointType.WAREHOUSE,
+                WaypointType.EMPTY, WaypointType.DEPOT)));
+        assertEquals(waypointTypeCollectionTwo, new ArrayList<>(Collections.singletonList(WaypointType.DEPOT)));
+        Collection<List<Waypoint>> waypointCollectionOne = waypointTypeListMapOne.values();
+        Collection<List<Waypoint>> waypointCollectionTwo = waypointTypeListMapTwo.values();
+        int i = 0;
+        for (List<Waypoint> list : waypointCollectionOne) {
+            if (i == 0) {
+                assertEquals(list, new ArrayList<>(Arrays.asList(village1Warehouse, city2Warehouse)));
+            }
+            if (i == 1) {
+                assertEquals(list, new ArrayList<>(Collections.singletonList(village2Waypoint)));
+            }
+            if (i == 2) {
+                assertEquals(list, new ArrayList<>(Arrays.asList(city1Depot, loneDepot)));
+            }
+            i++;
+        }
+        for (List<Waypoint> list : waypointCollectionTwo){
+            assertEquals(list, new ArrayList<>(Arrays.asList(city1DepotCompanyTwo, loneDepotCompanyTwo)));
+        }
     }
 }

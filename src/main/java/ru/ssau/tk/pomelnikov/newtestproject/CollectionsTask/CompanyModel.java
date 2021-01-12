@@ -101,7 +101,7 @@ public class CompanyModel {
         return returnableDriverRouteMap;
     }
 
-    public Map<Settlement, SettlementType> settlementTypeMap() {
+    public Map<Settlement, SettlementType> getSettlementsWithType() {
         Map<Settlement, SettlementType> settlementTypeMap = new LinkedHashMap<>();
         List<Settlement> settlementList = new ArrayList<>();
         for (Location location : this.allLocations) {
@@ -118,5 +118,28 @@ public class CompanyModel {
             }
         }
         return settlementTypeMap;
+    }
+
+    public Map<WaypointType, List<Waypoint>> getTypesOfWaypoints() {
+        Map<WaypointType, List<Waypoint>> waypointTypeListMap = new LinkedHashMap<>();
+        Set<WaypointType> waypointTypeList = new LinkedHashSet<>();
+        List<Waypoint> waypointList = new ArrayList<>();
+        for (Location location : this.allLocations) {
+            if (location.getClass() == Waypoint.class) {
+                waypointTypeList.add(((Waypoint) location).getType());
+                waypointList.add((Waypoint) location);
+            }
+        }
+        List<Waypoint> insertableWaybointList;
+        for (WaypointType waypointType : waypointTypeList) {
+            insertableWaybointList = new ArrayList<>();
+            for (Waypoint waypoint : waypointList) {
+                if (waypoint.getType() == waypointType){
+                    insertableWaybointList.add(waypoint);
+                }
+            }
+            waypointTypeListMap.put(waypointType, insertableWaybointList);
+        }
+        return waypointTypeListMap;
     }
 }
