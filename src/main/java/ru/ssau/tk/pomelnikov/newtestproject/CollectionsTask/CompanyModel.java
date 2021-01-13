@@ -6,12 +6,14 @@ import java.util.*;
 
 public class CompanyModel {
 
-    private static final CountOfDriversComparator routesComparator = new CountOfDriversComparator();
     private final Collection<Location> allLocations;
     private final Collection<Route> allRoutes;
     private final Collection<Driver> allDrivers;
     private final Map<Driver, Route> driverRouteMap;
     private int maxId = 0;
+
+    static final Comparator driversComparator = Comparator.comparing(Driver::getGender).thenComparing(Driver::getLicenseExpirationDate);
+    static final Comparator locationsComparator = new LocationsComparator();
 
     public CompanyModel() {
         allLocations = new LinkedHashSet<>();

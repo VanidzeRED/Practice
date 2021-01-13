@@ -3,7 +3,6 @@ package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 import ru.ssau.tk.pomelnikov.newtestproject.Gender;
 
 import java.util.Comparator;
-import java.util.Date;
 
 public class DriversComparator implements Comparator<Driver> {
     @Override
