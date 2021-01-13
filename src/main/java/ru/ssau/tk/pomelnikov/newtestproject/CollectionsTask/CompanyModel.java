@@ -20,7 +20,7 @@ public class CompanyModel {
         allLocations = new LinkedHashSet<>();
         allRoutes = new LinkedHashSet<>();
         allDrivers = new LinkedHashSet<>();
-        driverRouteMap = new LinkedHashMap<>();
+        driverRouteMap = new TreeMap<>(Comparator.comparing(Driver::getId));
     }
 
     public Collection<Location> getAllLocations() {
@@ -95,9 +95,8 @@ public class CompanyModel {
     }
 
     public Map<Driver, Route> driversOnRoute() {
-        Map<Driver, Route> returnableDriverRouteMap = new LinkedHashMap<>();
+        Map<Driver, Route> returnableDriverRouteMap = new TreeMap<>(Comparator.comparing(Driver::getName));
         List<Driver> drivers = new ArrayList<>(this.driverRouteMap.keySet());
-        drivers.sort((o1, o2) -> CharSequence.compare(o1.getName(), o2.getName()));
         for (Driver driver : drivers) {
             returnableDriverRouteMap.put(driver, this.driverRouteMap.get(driver));
         }
@@ -105,14 +104,14 @@ public class CompanyModel {
     }
 
     public Map<Settlement, SettlementType> getSettlementsWithType() {
-        Map<Settlement, SettlementType> settlementTypeMap = new LinkedHashMap<>();
+        Map<Settlement, SettlementType> settlementTypeMap =
+                new TreeMap<>(Comparator.comparing(Settlement::getSettlement).reversed());
         List<Settlement> settlementList = new ArrayList<>();
         for (Location location : this.allLocations) {
             if (location.getClass() == Settlement.class) {
                 settlementList.add((Settlement) location);
             }
         }
-        settlementList.sort(((o1, o2) -> Integer.compare(-o1.getSettlement(), -o2.getSettlement())));
         for (Settlement settlement : settlementList) {
             if (settlement.getType() == SettlementType.CITY) {
                 settlementTypeMap.put(settlement, SettlementType.CITY);
