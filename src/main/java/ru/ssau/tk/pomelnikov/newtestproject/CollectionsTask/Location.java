@@ -8,7 +8,7 @@ public class Location implements Comparable<Location> {
     private String name;
     private double latitude;
     private double longitude;
-    private EquatorComparator equatorComparator = new EquatorComparator();
+    private final EquatorComparator equatorComparator = new EquatorComparator();
 
     public void setId(int id) {
         this.id = id;
@@ -46,8 +46,7 @@ public class Location implements Comparable<Location> {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        Location location = (Location) object;
-        return id == location.id;
+        return id == ((Location) object).id;
     }
 
     @Override

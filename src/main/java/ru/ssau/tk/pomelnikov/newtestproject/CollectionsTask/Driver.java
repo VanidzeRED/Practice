@@ -48,8 +48,7 @@ public final class Driver {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        Driver driver = (Driver) object;
-        return id == driver.id;
+        return id == ((Driver) object).id;
     }
 
     @Override

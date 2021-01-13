@@ -23,6 +23,7 @@ public class Settlement extends Location {
 
     @Override
     public String toString() {
-        return "Settlement. Type: " + type + "; name: " + getName() + "; latitude: " + getLatitude() + "; longitude: " + getLongitude();
+        return "Settlement. Type: " + type + "; name: " + getName() + "; latitude: " + getLatitude() +
+                "; longitude: " + getLongitude();
     }
 }

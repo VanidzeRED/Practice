@@ -12,8 +12,9 @@ public class CompanyModel {
     private final Map<Driver, Route> driverRouteMap;
     private int maxId = 0;
 
-    static final Comparator driversComparator = Comparator.comparing(Driver::getGender).thenComparing(Driver::getLicenseExpirationDate);
-    static final Comparator locationsComparator = new LocationsComparator();
+    static final Comparator driversComparator = Comparator.comparing(Driver::getGender).
+            thenComparing(Driver::getLicenseExpirationDate);
+    static final Comparator locationsComparator = new LocationsComparator().thenComparing(Location::getName);
 
     public CompanyModel() {
         allLocations = new LinkedHashSet<>();
@@ -128,7 +129,7 @@ public class CompanyModel {
         List<Waypoint> waypointList = new ArrayList<>();
         for (Location location : this.allLocations) {
             if (location.getClass() == Waypoint.class) {
-                waypointTypeList.add(((Waypoint) location).getType());
+                waypointTypeList.add(((Waypoint)location).getType());
                 waypointList.add((Waypoint) location);
             }
         }

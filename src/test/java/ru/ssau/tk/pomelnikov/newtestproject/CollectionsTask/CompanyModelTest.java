@@ -79,8 +79,10 @@ public class CompanyModelTest {
                 1250000);
         companyModelTwo.addSettlement("city2", 21.87, 45.84, SettlementType.CITY,
                 384000);
-        city1DepotCompanyTwo = companyModelTwo.addWaypoint("city1.Depot", 20.47, 46.01, WaypointType.DEPOT, city1);
-        loneDepotCompanyTwo = companyModelTwo.addWaypoint("lone Depot", 20.54, 45.85, WaypointType.DEPOT,
+        city1DepotCompanyTwo = companyModelTwo.addWaypoint("city1.Depot", 20.47, 46.01,
+                WaypointType.DEPOT, city1);
+        loneDepotCompanyTwo = companyModelTwo.addWaypoint("lone Depot", 20.54, 45.85,
+                WaypointType.DEPOT,
                 null);
         chuck = companyModelTwo.addDriver("Chuck", Gender.MALE, new Date(123, Calendar.MAY, 6));
         carol = companyModelTwo.addDriver("Carol", Gender.FEMALE, new Date(129, Calendar.OCTOBER, 28));
@@ -320,11 +322,8 @@ public class CompanyModelTest {
         List<Location> locations = new ArrayList<>(Arrays.asList(village1, village1Warehouse, village2, village2Waypoint,
                 city1, city1Depot, city2, city2Warehouse, loneDepot));
         Collections.sort(locations, CompanyModel.locationsComparator);
-        for (Location location : locations) {
-            System.out.println(location.toString());
-        }
-        //assertEquals(locations, new ArrayList<>(Arrays.asList(city1, city2, village1, village2, city1Depot,
-       //         loneDepot, city2Warehouse, village1Warehouse, village2Waypoint)));
+        assertEquals(locations, new ArrayList<>(Arrays.asList(city1, city2, village1, village2, city1Depot,
+                loneDepot, city2Warehouse, village1Warehouse, village2Waypoint)));
     }
 
     @Test
