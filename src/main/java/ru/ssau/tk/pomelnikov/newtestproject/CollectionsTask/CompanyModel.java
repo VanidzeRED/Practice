@@ -14,7 +14,7 @@ public class CompanyModel {
 
     static final Comparator driversComparator = Comparator.comparing(Driver::getGender).
             thenComparing(Driver::getLicenseExpirationDate);
-    static final Comparator locationsComparator = new LocationsComparator().thenComparing(Location::getName);
+    static final Comparator<Location> locationsComparator = new LocationsComparator().thenComparing(Location::getName);
 
     public CompanyModel() {
         allLocations = new LinkedHashSet<>();

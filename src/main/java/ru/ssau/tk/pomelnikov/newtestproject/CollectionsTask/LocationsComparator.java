@@ -21,8 +21,6 @@ public class LocationsComparator implements Comparator<Location> {
                 } else {
                     return 1;
                 }
-            } else {
-                return CharSequence.compare(settlement1.getName(), settlement2.getName());
             }
         } else {
             Waypoint waypoint1 = (Waypoint) location1;
