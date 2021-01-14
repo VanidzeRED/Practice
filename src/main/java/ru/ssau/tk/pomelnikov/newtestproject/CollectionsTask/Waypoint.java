@@ -23,6 +23,10 @@ public class Waypoint extends Location {
 
     @Override
     public String toString() {
-        return "Waypoint. Type: " + type + "; name: " + getName() + "; latitude: " + getLatitude() + "; longitude: " + getLongitude();
+        return "Waypoint. Type: " + type +
+                "; name: " + getName() +
+                "; latitude: " + getLatitude() +
+                "; longitude: " + getLongitude() +
+                "\n";
     }
 }

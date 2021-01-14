@@ -498,4 +498,13 @@ public class CompanyModelTest {
         assertEquals(firstMap.values(), new ArrayList<>(Arrays.asList(village1, village2, city1, city2)));
         assertEquals(secondMap.values(), new ArrayList<>(Arrays.asList(city1, southCity, southVillage)));
     }
+
+    @Test
+    public void testTestToString() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        System.out.println(companyModelOne.toString());
+        System.out.println(companyModelTwo.toString());
+    }
 }

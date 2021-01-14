@@ -62,6 +62,7 @@ public final class Driver {
                 "id: " + id +
                 "; name: " + name +
                 "; gender: " + gender +
-                "; licenseExpirationDate: " + licenseExpirationDate;
+                "; licenseExpirationDate: " + licenseExpirationDate +
+                "\n";
     }
 }

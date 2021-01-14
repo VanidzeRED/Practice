@@ -206,4 +206,11 @@ public class CompanyModel {
                 .collect(Collectors.toMap(location -> ((Waypoint) location).getSettlement(),
                         Collectors.groupingBy(location -> (Waypoint) location)));
     }*/
+
+    @Override
+    public String toString() {
+        return Stream.of(allLocations, allDrivers)
+                .flatMap(objects -> Stream.of(objects.toString()))
+                .collect(Collectors.joining("\n"));
+    }
 }

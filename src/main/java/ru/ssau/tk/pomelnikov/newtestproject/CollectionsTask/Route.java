@@ -95,7 +95,6 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
         StringBuilder stringBuilder = new StringBuilder();
         for (Location location : locations) {
             stringBuilder.append(location.toString());
-            stringBuilder.append("\n");
         }
         return stringBuilder.toString();
     }
@@ -162,8 +161,7 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
                 .orElse(new Location());
     }
 
-    //своровал метод
     public static boolean isEqual(double a, double b, double accuracy) {
-        return Math.abs(a-b) < accuracy;
+        return Math.abs(a - b) < accuracy;
     }
 }

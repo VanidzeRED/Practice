@@ -46,7 +46,7 @@ public class DriverTest {
     @Test
     public void testTestToString() {
         setDrivers();
-        assertEquals(firstDriver.toString(), "Driver. id: 1; name: Sergey; gender: MALE; licenseExpirationDate: Tue Jun 27 00:00:00 SAMT 2028");
-        assertEquals(secondDriver.toString(), "Driver. id: 2; name: Maria; gender: FEMALE; licenseExpirationDate: Tue Sep 03 00:00:00 SAMT 2030");
+        assertEquals(firstDriver.toString(), "Driver. id: 1; name: Sergey; gender: MALE; licenseExpirationDate: Tue Jun 27 00:00:00 SAMT 2028\n");
+        assertEquals(secondDriver.toString(), "Driver. id: 2; name: Maria; gender: FEMALE; licenseExpirationDate: Tue Sep 03 00:00:00 SAMT 2030\n");
     }
 }

@@ -264,10 +264,10 @@ public class RouteTest {
     public void testFindLocationInRange() {
         Route route = generateRoute();
         Location location = new Location();
-        assertEquals(route.findLocationInRange(1,12, 3), village);
-        assertEquals(route.findLocationInRange(1,12, 3), city);
-        assertEquals(route.findLocationInRange(-8,7, 1), warehouse);
-        assertEquals(route.findLocationInRange(-7,9, 1), location);
-        assertEquals(route.findLocationInRange(1,20, 5), location);
+        assertEquals(route.findLocationInRange(1, 12, 3), village);
+        assertEquals(route.findLocationInRange(1, 12, 3), city);
+        assertEquals(route.findLocationInRange(-8, 7, 1), warehouse);
+        assertEquals(route.findLocationInRange(-7, 9, 1), location);
+        assertEquals(route.findLocationInRange(1, 20, 5), location);
     }
 }
