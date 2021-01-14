@@ -131,7 +131,7 @@ public class CompanyModel {
         List<Waypoint> waypointList = new ArrayList<>();
         for (Location location : this.allLocations) {
             if (location.getClass() == Waypoint.class) {
-                waypointTypeList.add(((Waypoint)location).getType());
+                waypointTypeList.add(((Waypoint) location).getType());
                 waypointList.add((Waypoint) location);
             }
         }
@@ -139,7 +139,7 @@ public class CompanyModel {
         for (WaypointType waypointType : waypointTypeList) {
             insertableWaybointList = new ArrayList<>();
             for (Waypoint waypoint : waypointList) {
-                if (waypoint.getType() == waypointType){
+                if (waypoint.getType() == waypointType) {
                     insertableWaybointList.add(waypoint);
                 }
             }
@@ -148,9 +148,17 @@ public class CompanyModel {
         return waypointTypeListMap;
     }
 
-    public List<Location> locationsOnNorthSemisphere() {
+    public List<Location> getLocationsOnNorthSemisphere() {
         return new ArrayList<>(allLocations).stream()
                 .filter(location -> location.getLatitude() > 0)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getWaypointInSettlementsNames() {
+        return new ArrayList<>(allLocations).stream()
+                .filter(location -> location.getClass() == Waypoint.class)
+                .filter(location -> ((Waypoint) location).getSettlement() != null)
+                .map(Location::getName)
                 .collect(Collectors.toList());
     }
 }

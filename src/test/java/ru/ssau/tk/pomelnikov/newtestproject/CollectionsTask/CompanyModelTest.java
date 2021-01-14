@@ -427,11 +427,20 @@ public class CompanyModelTest {
     }
 
     @Test
-    public void testLocationsOnNorthSemisphere () {
+    public void testGetLocationsOnNorthSemisphere() {
         CompanyModel companyModelOne = new CompanyModel();
         CompanyModel companyModelTwo = new CompanyModel();
         fillModels(companyModelOne, companyModelTwo);
-        assertEquals(companyModelTwo.locationsOnNorthSemisphere(), new ArrayList<>(Arrays
-                .asList(village1, village2, city1, city2,  city1DepotCompanyTwo, loneDepotCompanyTwo)));
+        assertEquals(companyModelTwo.getLocationsOnNorthSemisphere(), new ArrayList<>(Arrays
+                .asList(village1, village2, city1, city2, city1DepotCompanyTwo, loneDepotCompanyTwo)));
+    }
+
+    @Test
+    public void testGetWaypointInSettlementNames() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        assertEquals(companyModelTwo.getWaypointInSettlementsNames(), new ArrayList<>(Arrays
+                .asList("city1.Depot", "south city.Warehouse", "south village.Waypoint")));
     }
 }
