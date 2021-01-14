@@ -3,6 +3,7 @@ package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 import ru.ssau.tk.pomelnikov.newtestproject.Gender;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CompanyModel {
 
@@ -145,5 +146,11 @@ public class CompanyModel {
             waypointTypeListMap.put(waypointType, insertableWaybointList);
         }
         return waypointTypeListMap;
+    }
+
+    public List<Location> locationsOnNorthSemisphere() {
+        return new ArrayList<>(allLocations).stream()
+                .filter(location -> location.getLatitude() > 0)
+                .collect(Collectors.toList());
     }
 }
