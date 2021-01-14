@@ -443,4 +443,13 @@ public class CompanyModelTest {
         assertEquals(companyModelTwo.getWaypointInSettlementsNames(), new ArrayList<>(Arrays
                 .asList("city1.Depot", "south city.Warehouse", "south village.Waypoint")));
     }
+
+    @Test
+    public void testGetWaypointInSettlements() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        assertEquals(companyModelTwo.getWaypointsInSettlements(), new ArrayList<>(Arrays
+                .asList(city1DepotCompanyTwo, southCityWarehouse, southVillageWaypoint, city1, southCity, southVillage)));
+    }
 }

@@ -4,6 +4,7 @@ import ru.ssau.tk.pomelnikov.newtestproject.Gender;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CompanyModel {
 
@@ -159,6 +160,23 @@ public class CompanyModel {
                 .filter(location -> location.getClass() == Waypoint.class)
                 .filter(location -> ((Waypoint) location).getSettlement() != null)
                 .map(Location::getName)
+                .collect(Collectors.toList());
+    }
+
+    public Collection<Location> getWaypointsInSettlements() {
+        Collection<List<Location>> locations = new ArrayList<>();
+        locations.add(new ArrayList<>(allLocations).stream()
+                .filter(location -> location.getClass() == Waypoint.class)
+                .filter(location -> ((Waypoint) location).getSettlement() != null)
+                .collect(Collectors.toList()));
+        locations.add(new ArrayList<>(allLocations).stream()
+                .filter(location -> location.getClass() == Waypoint.class)
+                .filter(location -> ((Waypoint) location).getSettlement() != null)
+                .map(location -> ((Waypoint) location).getSettlement())
+                .distinct()
+                .collect(Collectors.toList()));
+        return locations.stream()
+                .flatMap(Collection::stream)
                 .collect(Collectors.toList());
     }
 }
