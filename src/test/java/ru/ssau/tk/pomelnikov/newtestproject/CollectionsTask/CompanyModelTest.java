@@ -450,6 +450,6 @@ public class CompanyModelTest {
         CompanyModel companyModelTwo = new CompanyModel();
         fillModels(companyModelOne, companyModelTwo);
         assertEquals(companyModelTwo.getWaypointsInSettlements(), new ArrayList<>(Arrays
-                .asList(city1DepotCompanyTwo, southCityWarehouse, southVillageWaypoint, city1, southCity, southVillage)));
+                .asList(city1DepotCompanyTwo, city1, southCityWarehouse, southCity, southVillageWaypoint, southVillage)));
     }
 }

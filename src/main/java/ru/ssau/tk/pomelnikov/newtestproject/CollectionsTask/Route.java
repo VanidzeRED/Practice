@@ -127,7 +127,7 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
     }
 
     public Stream<Location> streamOfLocations() {
-        return new ArrayList<Location>(locations).stream();
+        return locations.stream();
     }
 
     public Location getFirstLocationOnBeginning(String beginning) {
@@ -144,7 +144,7 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
 
     public  boolean allMathLocation() {
         return this.streamOfLocations()
-                .allMatch(location -> (location.getClass() == Settlement.class) ||
+                .allMatch(location -> (location instanceof Settlement) ||
                         (((Waypoint) location).getSettlement() != null));
     }
 

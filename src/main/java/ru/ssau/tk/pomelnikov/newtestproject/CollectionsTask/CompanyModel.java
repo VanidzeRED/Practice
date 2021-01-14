@@ -150,20 +150,27 @@ public class CompanyModel {
     }
 
     public List<Location> getLocationsOnNorthSemisphere() {
-        return new ArrayList<>(allLocations).stream()
+        return allLocations.stream()
                 .filter(location -> location.getLatitude() > 0)
                 .collect(Collectors.toList());
     }
 
     public List<String> getWaypointInSettlementsNames() {
-        return new ArrayList<>(allLocations).stream()
-                .filter(location -> location.getClass() == Waypoint.class)
+        return allLocations.stream()
+                .filter(location -> location instanceof Waypoint)
                 .filter(location -> ((Waypoint) location).getSettlement() != null)
                 .map(Location::getName)
                 .collect(Collectors.toList());
     }
 
     public Collection<Location> getWaypointsInSettlements() {
+        return allLocations.stream()
+                .filter(location -> location instanceof Waypoint)
+                .filter(location -> ((Waypoint) location).getSettlement() != null)
+                .flatMap(location -> Stream.of(location, ((Waypoint) location).getSettlement()))
+                .distinct()
+                .collect(Collectors.toList());
+        /*
         Collection<List<Location>> locations = new ArrayList<>();
         locations.add(new ArrayList<>(allLocations).stream()
                 .filter(location -> location.getClass() == Waypoint.class)
@@ -177,6 +184,6 @@ public class CompanyModel {
                 .collect(Collectors.toList()));
         return locations.stream()
                 .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
     }
 }
