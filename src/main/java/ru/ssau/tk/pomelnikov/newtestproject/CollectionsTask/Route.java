@@ -136,4 +136,20 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
                 .findFirst()
                 .orElse(new Waypoint());
     }
+
+    public boolean anyMatchLocation(String name) {
+        return this.streamOfLocations()
+                .anyMatch(location -> location.getName().equals(name));
+    }
+
+    public  boolean allMathLocation() {
+        return this.streamOfLocations()
+                .allMatch(location -> (location.getClass() == Settlement.class) ||
+                        (((Waypoint) location).getSettlement() != null));
+    }
+
+    public  boolean noneMathLocation() {
+        return this.streamOfLocations()
+                .noneMatch(location -> ((Waypoint) location).getType() == WaypointType.EMPTY);
+    }
 }
