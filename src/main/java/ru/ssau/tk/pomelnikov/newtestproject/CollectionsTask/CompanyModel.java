@@ -178,4 +178,10 @@ public class CompanyModel {
                 .min()
                 .orElse(0);
     }
+
+    public Driver maxDriverLicenseExpirationDate() {
+        return allDrivers.stream()
+                .max(Comparator.comparing(Driver::getLicenseExpirationDate))
+                .orElse(null);
+    }
 }

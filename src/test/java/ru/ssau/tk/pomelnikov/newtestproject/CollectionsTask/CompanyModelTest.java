@@ -463,4 +463,15 @@ public class CompanyModelTest {
         assertEquals(companyModelOne.minRouteLength(), 1.69, 0.01);
         assertEquals(companyModelTwo.minRouteLength(), 3.83, 0.01);
     }
+
+    @Test
+    public void testMaxDriverLicenseExpirationDate() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        CompanyModel emptyCompanyModel = new CompanyModel();
+        assertNull(emptyCompanyModel.maxDriverLicenseExpirationDate());
+        assertEquals(companyModelOne.maxDriverLicenseExpirationDate(), charlie);
+        assertEquals(companyModelTwo.maxDriverLicenseExpirationDate(), carol);
+    }
 }
