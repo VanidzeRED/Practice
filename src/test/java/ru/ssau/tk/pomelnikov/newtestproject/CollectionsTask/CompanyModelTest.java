@@ -483,4 +483,19 @@ public class CompanyModelTest {
         assertEquals(companyModelOne.sumOfRoutesLength(), 12.16, 0.01);
         assertEquals(companyModelTwo.sumOfRoutesLength(), 8.17, 0.01);
     }
+
+    @Test
+    public void testWaypointSettlementMap() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        Map<Waypoint, Settlement> firstMap = companyModelOne.waypointSettlementMap();
+        Map<Waypoint, Settlement> secondMap = companyModelTwo.waypointSettlementMap();
+        assertEquals(firstMap.keySet(), new HashSet<>(Arrays.asList(village1Warehouse, village2Waypoint,
+                city1Depot, city2Warehouse)));
+        assertEquals(secondMap.keySet(), new HashSet<>(Arrays.asList(city1DepotCompanyTwo,
+                southCityWarehouse, southVillageWaypoint)));
+        assertEquals(firstMap.values(), new ArrayList<>(Arrays.asList(village1, village2, city1, city2)));
+        assertEquals(secondMap.values(), new ArrayList<>(Arrays.asList(city1, southCity, southVillage)));
+    }
 }

@@ -190,4 +190,12 @@ public class CompanyModel {
                 .mapToDouble(Route::length)
                 .sum();
     }
+
+    public Map<Waypoint, Settlement> waypointSettlementMap() {
+        return allLocations.stream()
+                .filter(location -> location instanceof Waypoint)
+                .filter(location -> ((Waypoint) location).getSettlement() != null)
+                .collect(Collectors.toMap(location -> (Waypoint) location, location
+                        -> ((Waypoint) location).getSettlement()));
+    }
 }
