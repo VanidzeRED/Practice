@@ -165,6 +165,21 @@ public class CompanyModelTest {
             if (i == 6) {
                 assertEquals(location.toString(), loneDepot.toString());
             }
+            if (i == 7) {
+                assertEquals(location, southCity);
+            }
+            if (i == 8) {
+                assertEquals(location, southVillage);
+            }
+            if (i == 9) {
+                assertEquals(location, southDepot);
+            }
+            if (i == 10) {
+                assertEquals(location, southCityWarehouse);
+            }
+            if (i == 11) {
+                assertEquals(location, southVillageWaypoint);
+            }
             i++;
         }
     }
