@@ -452,4 +452,15 @@ public class CompanyModelTest {
         assertEquals(companyModelTwo.getWaypointsInSettlements(), new ArrayList<>(Arrays
                 .asList(city1DepotCompanyTwo, city1, southCityWarehouse, southCity, southVillageWaypoint, southVillage)));
     }
+
+    @Test
+    public void testMinRouteLength() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        CompanyModel emptyCompanyModel = new CompanyModel();
+        assertEquals(emptyCompanyModel.minRouteLength(), 0.);
+        assertEquals(companyModelOne.minRouteLength(), 1.69, 0.01);
+        assertEquals(companyModelTwo.minRouteLength(), 3.83, 0.01);
+    }
 }

@@ -171,4 +171,11 @@ public class CompanyModel {
                 .distinct()
                 .collect(Collectors.toList());
     }
+
+    public double minRouteLength() {
+        return allRoutes.stream()
+                .mapToDouble(Route::length)
+                .min()
+                .orElse(0);
+    }
 }
