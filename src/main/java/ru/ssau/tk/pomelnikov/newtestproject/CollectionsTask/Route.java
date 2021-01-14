@@ -6,10 +6,12 @@ import java.lang.Math;
 public final class Route implements Iterable<Location>, Comparable<Route> {
 
     private final List<Location> locations;
+    private int driversOnRoute;
     private final RouteLengthComparator routeLengthComparator = new RouteLengthComparator();
 
     public Route() {
         this.locations = new ArrayList<>();
+        driversOnRoute = 0;
     }
 
     public List<Location> getLocations() {
@@ -45,6 +47,14 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
 
     public Location getLastLocation() {
         return locations.get(locations.size() - 1);
+    }
+
+    public void addDriverOnRoute() {
+        driversOnRoute++;
+    }
+
+    public int getDriversOnRoute() {
+        return driversOnRoute;
     }
 
     public double length() {

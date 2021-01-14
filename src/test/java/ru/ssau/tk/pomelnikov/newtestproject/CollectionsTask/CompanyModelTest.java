@@ -327,6 +327,16 @@ public class CompanyModelTest {
     }
 
     @Test
+    public void testRoutesComparator() {
+        CompanyModel companyModelOne = new CompanyModel();
+        CompanyModel companyModelTwo = new CompanyModel();
+        fillModels(companyModelOne, companyModelTwo);
+        List<Route> routes = new ArrayList<>(companyModelOne.getAllRoutes());
+        Collections.sort(routes, CompanyModel.routesComparator);
+        assertEquals(routes, new ArrayList<>(Arrays.asList(route6, route1, route3, route2)));
+    }
+
+    @Test
     public void testDriversOnRoute() {
         CompanyModel companyModelOne = new CompanyModel();
         CompanyModel companyModelTwo = new CompanyModel();
@@ -378,7 +388,7 @@ public class CompanyModelTest {
             }
             i++;
         }
-        for (List<Waypoint> list : waypointCollectionTwo){
+        for (List<Waypoint> list : waypointCollectionTwo) {
             assertEquals(list, new ArrayList<>(Arrays.asList(city1DepotCompanyTwo, loneDepotCompanyTwo)));
         }
     }
