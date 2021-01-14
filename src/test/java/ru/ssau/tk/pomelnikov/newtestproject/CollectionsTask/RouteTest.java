@@ -22,6 +22,24 @@ public class RouteTest {
         testRoute.addLocation(city);
     }
 
+    private Route generateRoute() {
+        Route route = new Route();
+        village.setName("village");
+        city.setName("city");
+        depot.setName("city.Depot");
+        warehouse.setName("village.Depot");
+        village.setType(SettlementType.VILLAGE);
+        city.setType(SettlementType.CITY);
+        depot.setType(WaypointType.DEPOT);
+        warehouse.setType(WaypointType.WAREHOUSE);
+        depot.setSettlement(city);
+        route.addLocation(village);
+        route.addLocation(depot);
+        route.addLocation(city);
+        route.addLocation(warehouse);
+        return route;
+    }
+
     @Test
     public void testGetLocations() {
         testRoute = new Route();
@@ -200,18 +218,37 @@ public class RouteTest {
 
     @Test
     public void testGetFirstLocationOnBeginning() {
-        testRoute = new Route();
-        village.setName("village");
-        city.setName("city");
-        depot.setName("city.Depot");
-        warehouse.setName("village.Depot");
+        Route route = generateRoute();
         Waypoint newWaypoint = new Waypoint();
-        testRoute.addLocation(village);
-        testRoute.addLocation(depot);
-        testRoute.addLocation(city);
-        testRoute.addLocation(warehouse);
-        assertEquals(testRoute.getFirstLocationOnBeginning("v"), village);
-        assertEquals(testRoute.getFirstLocationOnBeginning("c"), depot);
-        assertEquals(testRoute.getFirstLocationOnBeginning("Depot"), newWaypoint);
+        assertEquals(route.getFirstLocationOnBeginning("v"), village);
+        assertEquals(route.getFirstLocationOnBeginning("c"), depot);
+        assertEquals(route.getFirstLocationOnBeginning("Depot"), newWaypoint);
+    }
+
+    @Test
+    public void testAnyMatchLocation() {
+        Route route = generateRoute();
+        assertTrue(route.anyMatchLocation("village"));
+        assertTrue(route.anyMatchLocation("city.Depot"));
+        assertFalse(route.anyMatchLocation("abs"));
+        assertFalse(route.anyMatchLocation("Samara"));
+    }
+
+    @Test
+    public void testAllMathLocation() {
+        Route route = generateRoute();
+        assertFalse(route.allMathLocation());
+        route.removeLocation(3);
+        assertTrue(route.allMathLocation());
+    }
+
+    @Test
+    public void testNoneMathLocation() {
+        Route route = generateRoute();
+        assertTrue(route.noneMathLocation());
+        Waypoint empty = new Waypoint();
+        empty.setType(WaypointType.EMPTY);
+        route.addLocation(empty);
+        assertFalse(route.noneMathLocation());
     }
 }

@@ -150,6 +150,7 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
 
     public  boolean noneMathLocation() {
         return this.streamOfLocations()
+                .filter(location -> location instanceof Waypoint)
                 .noneMatch(location -> ((Waypoint) location).getType() == WaypointType.EMPTY);
     }
 }

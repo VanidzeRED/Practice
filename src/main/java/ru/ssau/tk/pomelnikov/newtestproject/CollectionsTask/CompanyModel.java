@@ -170,20 +170,5 @@ public class CompanyModel {
                 .flatMap(location -> Stream.of(location, ((Waypoint) location).getSettlement()))
                 .distinct()
                 .collect(Collectors.toList());
-        /*
-        Collection<List<Location>> locations = new ArrayList<>();
-        locations.add(new ArrayList<>(allLocations).stream()
-                .filter(location -> location.getClass() == Waypoint.class)
-                .filter(location -> ((Waypoint) location).getSettlement() != null)
-                .collect(Collectors.toList()));
-        locations.add(new ArrayList<>(allLocations).stream()
-                .filter(location -> location.getClass() == Waypoint.class)
-                .filter(location -> ((Waypoint) location).getSettlement() != null)
-                .map(location -> ((Waypoint) location).getSettlement())
-                .distinct()
-                .collect(Collectors.toList()));
-        return locations.stream()
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());*/
     }
 }
