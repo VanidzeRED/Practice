@@ -184,4 +184,10 @@ public class CompanyModel {
                 .max(Comparator.comparing(Driver::getLicenseExpirationDate))
                 .orElse(null);
     }
+
+    public double sumOfRoutesLength() {
+        return allRoutes.stream()
+                .mapToDouble(Route::length)
+                .sum();
+    }
 }
