@@ -32,6 +32,14 @@ public class RouteTest {
         city.setType(SettlementType.CITY);
         depot.setType(WaypointType.DEPOT);
         warehouse.setType(WaypointType.WAREHOUSE);
+        village.setLatitude(1.2);
+        city.setLatitude(2.4);
+        depot.setLatitude(7.8);
+        warehouse.setLatitude(-8.4);
+        village.setLongitude(10.4);
+        city.setLongitude(14.2);
+        depot.setLongitude(20.7);
+        warehouse.setLongitude(7.4);
         depot.setSettlement(city);
         route.addLocation(village);
         route.addLocation(depot);
@@ -250,5 +258,16 @@ public class RouteTest {
         empty.setType(WaypointType.EMPTY);
         route.addLocation(empty);
         assertFalse(route.noneMathLocation());
+    }
+
+    @Test
+    public void testFindLocationInRange() {
+        Route route = generateRoute();
+        Location location = new Location();
+        assertEquals(route.findLocationInRange(1,12, 3), village);
+        assertEquals(route.findLocationInRange(1,12, 3), city);
+        assertEquals(route.findLocationInRange(-8,7, 1), warehouse);
+        assertEquals(route.findLocationInRange(-7,9, 1), location);
+        assertEquals(route.findLocationInRange(1,20, 5), location);
     }
 }

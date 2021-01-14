@@ -142,15 +142,28 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
                 .anyMatch(location -> location.getName().equals(name));
     }
 
-    public  boolean allMathLocation() {
+    public boolean allMathLocation() {
         return this.streamOfLocations()
                 .allMatch(location -> (location instanceof Settlement) ||
                         (((Waypoint) location).getSettlement() != null));
     }
 
-    public  boolean noneMathLocation() {
+    public boolean noneMathLocation() {
         return this.streamOfLocations()
                 .filter(location -> location instanceof Waypoint)
                 .noneMatch(location -> ((Waypoint) location).getType() == WaypointType.EMPTY);
+    }
+
+    public Location findLocationInRange(double latitude, double longitude, double accuracy) {
+        return this.streamOfLocations()
+                .filter(location -> isEqual(location.getLatitude(), latitude, accuracy))
+                .filter(location -> isEqual(location.getLongitude(), longitude, accuracy))
+                .findAny()
+                .orElse(new Location());
+    }
+
+    //своровал метод
+    public static boolean isEqual(double a, double b, double accuracy) {
+        return Math.abs(a-b) < accuracy;
     }
 }
