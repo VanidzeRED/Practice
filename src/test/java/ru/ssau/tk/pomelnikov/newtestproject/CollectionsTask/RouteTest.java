@@ -197,4 +197,21 @@ public class RouteTest {
         }
         assertEquals(count, 4);
     }
+
+    @Test
+    public void testGetFirstLocationOnBeginning() {
+        testRoute = new Route();
+        village.setName("village");
+        city.setName("city");
+        depot.setName("city.Depot");
+        warehouse.setName("village.Depot");
+        Waypoint newWaypoint = new Waypoint();
+        testRoute.addLocation(village);
+        testRoute.addLocation(depot);
+        testRoute.addLocation(city);
+        testRoute.addLocation(warehouse);
+        assertEquals(testRoute.getFirstLocationOnBeginning("v"), village);
+        assertEquals(testRoute.getFirstLocationOnBeginning("c"), depot);
+        assertEquals(testRoute.getFirstLocationOnBeginning("Depot"), newWaypoint);
+    }
 }

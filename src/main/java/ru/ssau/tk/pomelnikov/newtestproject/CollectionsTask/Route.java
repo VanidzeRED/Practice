@@ -2,6 +2,7 @@ package ru.ssau.tk.pomelnikov.newtestproject.CollectionsTask;
 
 import java.util.*;
 import java.lang.Math;
+import java.util.stream.Stream;
 
 public final class Route implements Iterable<Location>, Comparable<Route> {
 
@@ -123,5 +124,16 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
     @Override
     public int compareTo(Route anotherRoute) {
         return routeLengthComparator.compare(this, anotherRoute);
+    }
+
+    public Stream<Location> streamOfLocations() {
+        return new ArrayList<Location>(locations).stream();
+    }
+
+    public Location getFirstLocationOnBeginning(String beginning) {
+        return this.streamOfLocations()
+                .filter(location -> location.getName().startsWith(beginning))
+                .findFirst()
+                .orElse(new Waypoint());
     }
 }
