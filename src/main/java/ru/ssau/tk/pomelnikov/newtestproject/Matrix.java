@@ -1,5 +1,8 @@
 package ru.ssau.tk.pomelnikov.newtestproject;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class Matrix {
     private final int n;
     private final int m;

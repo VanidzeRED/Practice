@@ -198,13 +198,12 @@ public class CompanyModel {
                 .collect(Collectors.toMap(location -> (Waypoint) location,
                         location -> ((Waypoint) location).getSettlement()));
     }
-    //TODO: сделать правильное приведение типов
+
     /*public Map<Settlement, Set<Waypoint>> settlementListMap() {
         return allLocations.stream()
                 .filter(location -> location instanceof Waypoint)
                 .filter(location -> ((Waypoint) location).getSettlement() != null)
-                .collect(Collectors.toMap(location -> ((Waypoint) location).getSettlement(),
-                        Collectors.groupingBy(location -> (Waypoint) location)));
+                .collect(Collectors.groupingBy(location -> ((Waypoint) location).getSettlement(), Collectors.toSet()));
     }*/
 
     @Override
