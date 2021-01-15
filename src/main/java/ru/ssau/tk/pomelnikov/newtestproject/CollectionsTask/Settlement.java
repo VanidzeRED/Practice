@@ -26,7 +26,6 @@ public class Settlement extends Location {
         return "Settlement. Type: " + type +
                 "; name: " + getName() +
                 "; latitude: " + getLatitude() +
-                "; longitude: " + getLongitude() +
-                "\n";
+                "; longitude: " + getLongitude();
     }
 }

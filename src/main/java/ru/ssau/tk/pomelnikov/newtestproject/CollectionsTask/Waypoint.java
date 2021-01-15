@@ -26,7 +26,6 @@ public class Waypoint extends Location {
         return "Waypoint. Type: " + type +
                 "; name: " + getName() +
                 "; latitude: " + getLatitude() +
-                "; longitude: " + getLongitude() +
-                "\n";
+                "; longitude: " + getLongitude();
     }
 }

@@ -95,6 +95,7 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
         StringBuilder stringBuilder = new StringBuilder();
         for (Location location : locations) {
             stringBuilder.append(location.toString());
+            stringBuilder.append("\n");
         }
         return stringBuilder.toString();
     }

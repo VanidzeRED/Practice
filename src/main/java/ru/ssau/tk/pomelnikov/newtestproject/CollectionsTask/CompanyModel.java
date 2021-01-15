@@ -209,7 +209,8 @@ public class CompanyModel {
     @Override
     public String toString() {
         return Stream.of(allLocations, allDrivers)
-                .flatMap(objects -> Stream.of(objects.toString()))
+                .flatMap(Collection::stream)
+                .map(Object::toString)
                 .collect(Collectors.joining("\n"));
     }
 }

@@ -505,6 +505,7 @@ public class CompanyModelTest {
         CompanyModel companyModelTwo = new CompanyModel();
         fillModels(companyModelOne, companyModelTwo);
         System.out.println(companyModelOne.toString());
+        System.out.println("----");
         System.out.println(companyModelTwo.toString());
     }
 }
